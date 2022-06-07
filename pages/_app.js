@@ -6,7 +6,14 @@ import * as React from "react";
 function MyApp({ Component, pageProps }) {
   const [theme, setTheme] = React.useState("dark");
   React.useEffect(() => {
-    setTheme(localStorage.getItem("theme"));
+    if (
+      localStorage.getItem("theme") == undefined ||
+      localStorage.getItem("theme") == "dark"
+    ) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
   });
   return (
     <GeistProvider themeType={theme}>
