@@ -22,7 +22,7 @@ export default function Header(props){
         <Breadcrumbs>
           <Breadcrumbs.Item href="#" onClick={() => setState(true)}><HomeFillIcon/>manuanish</Breadcrumbs.Item>
           {props.dir.map((file) => (
-            <Breadcrumbs.Item href="#" onClick={() => setState(true)}>{file}</Breadcrumbs.Item>
+            <Breadcrumbs.Item href="#" onClick={() => setState(true)} key={file}>{file}</Breadcrumbs.Item>
           ))}
         </Breadcrumbs>
       </div>
