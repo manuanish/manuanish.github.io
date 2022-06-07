@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Twemoji from "@components/Twemoji";
+import Header from "@components/Header";
 import * as React from "react";
 import { useRouter } from "next/router";
 import {
@@ -44,7 +45,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <div className="flex-row md:flex lg:flex gap-20">
+        <Header dir={["index"]}/>
+        <div className="flex-row md:flex lg:flex gap-20 mt-10">
           <div className="w-full">
             <div className="mt-20">
               <div className="flex gap-3">
@@ -167,7 +169,7 @@ export default function Home() {
               <Divider h="1px" my={0} />
               <Card.Content>
                 <Text style={{ color: palette.accents_5 }}>
-                  If you ever need me.
+                  As a means of communication.
                 </Text>
                 <motion.div
                   className="flex"
@@ -402,7 +404,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, y: -5 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
           <Text h3 className="mt-20">
@@ -412,7 +414,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, y: -5 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
           <Text
@@ -427,7 +429,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, y: -5 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
           <Snippet
@@ -440,7 +442,7 @@ export default function Home() {
           className="mt-10"
           initial={{ opacity: 0, y: -5 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
           <Collapse.Group>
@@ -448,7 +450,7 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0, y: -5 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
                 How do I verify a message with a signature? The instructions are
@@ -460,7 +462,7 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0, y: -5 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
                 <Text h4>1. Add my key to your keyring</Text>
@@ -496,12 +498,12 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0, y: -5 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
                 <Text h4>2. Verify a message/document</Text>
                 To verify a document (e.g <Code>example.txt</Code>) run the
-                following command
+                following command in your terminal.:
                 <br />
                 <br />
                 <Snippet>gpg --verify example.txt</Snippet>
@@ -513,7 +515,7 @@ export default function Home() {
           className="mt-[100px] flex justify-center align-center"
           initial={{ opacity: 0, y: -5 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
           <span>
