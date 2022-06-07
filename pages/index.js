@@ -462,6 +462,7 @@ export default function Home() {
                   color
                   underline
                   href="https://en.wikipedia.org/wiki/Public-key_cryptography"
+                  target="blank"
                 >
                   public key
                 </Link>
