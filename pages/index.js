@@ -5,6 +5,7 @@ import Twemoji from "@components/Twemoji";
 import Header from "@components/Header";
 import * as React from "react";
 import { useRouter } from "next/router";
+import { GeistProvider, CssBaseline } from "@geist-ui/core";
 import {
   useTheme,
   Card,
@@ -35,7 +36,6 @@ import {
 
 export default function Home() {
   const router = useRouter();
-  const [theme, setTheme] = React.useState(true);
   const { palette } = useTheme();
   return (
     <div className="md:p-20 lg:p-20 lg:pt-0 md:pt-0 p-5">
@@ -45,7 +45,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <Header dir={["index"]}/>
+        <Header dir={["index"]} />
         <div className="flex-row md:flex lg:flex gap-20 mt-10">
           <div className="w-full">
             <div className="mt-20">
@@ -254,7 +254,13 @@ export default function Home() {
                 >
                   <FaDiscord size={24} />
                   &nbsp;&nbsp;
-                  <Link href="" block>
+                  <Link
+                    href=""
+                    block
+                    onClick={(e) => {
+                      e.preventDefault();
+                    }}
+                  >
                     iHxp#6160
                   </Link>
                 </motion.div>
