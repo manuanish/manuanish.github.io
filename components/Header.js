@@ -6,6 +6,7 @@ import {
   Divider,
   Tree,
   Toggle,
+  Button
 } from "@geist-ui/core";
 
 import { HomeFillIcon, SunIcon, MoonIcon } from "@primer/octicons-react";
@@ -46,14 +47,14 @@ export default function Header(props) {
     <div>
       <div className="w-full mt-8">
         <Breadcrumbs>
-          <Breadcrumbs.Item href="#" onClick={() => setState(true)}>
-            <HomeFillIcon />
+          <Breadcrumbs.Item href="#" onClick={(e) => {setState(true); e.preventDefault();}}>
+            <HomeFillIcon size={20}/>
             manuanish
           </Breadcrumbs.Item>
           {props.dir.map((file) => (
             <Breadcrumbs.Item
               href="#"
-              onClick={() => setState(true)}
+              onClick={(e) => {setState(true); e.preventDefault();}}
               key={file}
             >
               {file}

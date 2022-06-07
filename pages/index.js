@@ -150,131 +150,152 @@ export default function Home() {
               </motion.div>
             </div>
           </div>
+          <div className="flex flex-col w-full">
+            <motion.div
+              className="mt-20 w-full"
+              initial={{ opacity: 0, y: -5 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: 4.5,
+              }}
+            >
+              <Card width="100%">
+                <Card.Content>
+                  <Text h3 my={0}>
+                    <CommentDiscussionIcon size={28} />
+                    &nbsp;&nbsp;Contact
+                  </Text>
+                </Card.Content>
+                <Divider h="1px" my={0} />
+                <Card.Content>
+                  <Text style={{ color: palette.accents_5 }}>
+                    As a means of communication.
+                  </Text>
+                  <motion.div
+                    className="flex"
+                    initial={{ opacity: 0, y: -5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.5,
+                      delay: 5,
+                    }}
+                  >
+                    <FaTwitter size={24} />
+                    &nbsp;&nbsp;
+                    <Link
+                      href="https://twitter.com/manusanish"
+                      block
+                      target="_blank"
+                    >
+                      manusanish
+                    </Link>
+                  </motion.div>
+                  <motion.div
+                    className="flex mt-3"
+                    initial={{ opacity: 0, y: -5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.5,
+                      delay: 5.25,
+                    }}
+                  >
+                    <FaInstagram size={24} />
+                    &nbsp;&nbsp;
+                    <Link
+                      href="https://instagram.com/manusanish"
+                      block
+                      target="_blank"
+                    >
+                      manusanish
+                    </Link>
+                  </motion.div>
+                  <motion.div
+                    className="flex mt-3"
+                    initial={{ opacity: 0, y: -5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.5,
+                      delay: 5.5,
+                    }}
+                  >
+                    <FaGithub size={24} />
+                    &nbsp;&nbsp;
+                    <Link
+                      href="https://github.com/manuanish"
+                      block
+                      target="_blank"
+                    >
+                      manuanish
+                    </Link>
+                  </motion.div>
+                  <motion.div
+                    className="flex mt-3"
+                    initial={{ opacity: 0, y: -5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.5,
+                      delay: 5.75,
+                    }}
+                  >
+                    <FaTwitch size={24} />
+                    &nbsp;&nbsp;
+                    <Link href="https://twitch.tv/iHxpMC" block target="_blank">
+                      iHxpMC
+                    </Link>
+                  </motion.div>
+                  <motion.div
+                    className="flex mt-3"
+                    initial={{ opacity: 0, y: -5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.5,
+                      delay: 6,
+                    }}
+                  >
+                    <FaDiscord size={24} />
+                    &nbsp;&nbsp;
+                    <Link
+                      href=""
+                      block
+                      onClick={(e) => {
+                        e.preventDefault();
+                      }}
+                    >
+                      iHxp#6160
+                    </Link>
+                  </motion.div>
+                </Card.Content>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+        <GeistProvider themeType="light">
+        <div className="flex justify-center">
           <motion.div
-            className="mt-20 w-full"
+            className="mt-20 w-[600px]"
             initial={{ opacity: 0, y: -5 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
               duration: 0.5,
-              delay: 4.5,
+              delay: 6.5,
             }}
           >
-            <Card width="100%">
-              <Card.Content>
-                <Text h3 my={0}>
-                  <CommentDiscussionIcon size={28} />
-                  &nbsp;&nbsp;Contact
-                </Text>
-              </Card.Content>
-              <Divider h="1px" my={0} />
-              <Card.Content>
-                <Text style={{ color: palette.accents_5 }}>
-                  As a means of communication.
-                </Text>
-                <motion.div
-                  className="flex"
-                  initial={{ opacity: 0, y: -5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 5,
-                  }}
-                >
-                  <FaTwitter size={24} />
-                  &nbsp;&nbsp;
-                  <Link
-                    href="https://twitter.com/manusanish"
-                    block
-                    target="_blank"
-                  >
-                    manusanish
-                  </Link>
-                </motion.div>
-                <motion.div
-                  className="flex mt-3"
-                  initial={{ opacity: 0, y: -5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 5.25,
-                  }}
-                >
-                  <FaInstagram size={24} />
-                  &nbsp;&nbsp;
-                  <Link
-                    href="https://instagram.com/manusanish"
-                    block
-                    target="_blank"
-                  >
-                    manusanish
-                  </Link>
-                </motion.div>
-                <motion.div
-                  className="flex mt-3"
-                  initial={{ opacity: 0, y: -5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 5.5,
-                  }}
-                >
-                  <FaGithub size={24} />
-                  &nbsp;&nbsp;
-                  <Link
-                    href="https://github.com/manuanish"
-                    block
-                    target="_blank"
-                  >
-                    manuanish
-                  </Link>
-                </motion.div>
-                <motion.div
-                  className="flex mt-3"
-                  initial={{ opacity: 0, y: -5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 5.75,
-                  }}
-                >
-                  <FaTwitch size={24} />
-                  &nbsp;&nbsp;
-                  <Link href="https://twitch.tv/iHxpMC" block target="_blank">
-                    iHxpMC
-                  </Link>
-                </motion.div>
-                <motion.div
-                  className="flex mt-3"
-                  initial={{ opacity: 0, y: -5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 6,
-                  }}
-                >
-                  <FaDiscord size={24} />
-                  &nbsp;&nbsp;
-                  <Link
-                    href=""
-                    block
-                    onClick={(e) => {
-                      e.preventDefault();
-                    }}
-                  >
-                    iHxp#6160
-                  </Link>
-                </motion.div>
-              </Card.Content>
-            </Card>
+            <div className="border-0 border-l-4 pl-6">
+              <Text h4 i>"Der Mensch kann tun was er will; er kann aber nicht wollen was er will." </Text>
+              <Text i type="secondary">Man can do what he wills but he cannot will what he wills.</Text>
+              <br/>
+              <br/>
+              <Text i b>― Arthur Schopenhauer, Essays and Aphorisms</Text>
+            </div>
           </motion.div>
         </div>
+        </GeistProvider>
         <motion.div
-          initial={{ opacity: 0, y: -5 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.5,
-            delay: 7,
-          }}
+        initial={{ opacity: 0, y: -5 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
         >
           <Text h2 className="mt-20">
             {" "}
@@ -282,12 +303,10 @@ export default function Home() {
           </Text>
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, y: -5 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.5,
-            delay: 7.5,
-          }}
+        initial={{ opacity: 0, y: -5 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
         >
           <Text
             h4
@@ -300,12 +319,10 @@ export default function Home() {
         </motion.div>
         <div className="flex space-evenly justify-center mt-10 gap-5 flex-wrap">
           <motion.div
-            initial={{ opacity: 0, y: -5 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.5,
-              delay: 8.5,
-            }}
+          initial={{ opacity: 0, y: -5 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
             className="max-w-[300px]"
           >
             <Card width="100%">
@@ -332,12 +349,10 @@ export default function Home() {
             </Card>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, y: -5 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.5,
-              delay: 8.75,
-            }}
+          initial={{ opacity: 0, y: -5 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
             className="max-w-[300px]"
           >
             <Card width="100%">
@@ -355,12 +370,10 @@ export default function Home() {
             </Card>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, y: -5 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.5,
-              delay: 9,
-            }}
+          initial={{ opacity: 0, y: -5 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
             className="max-w-[300px]"
           >
             <Card width="100%">
@@ -381,12 +394,10 @@ export default function Home() {
             </Card>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, y: -5 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.5,
-              delay: 9.25,
-            }}
+          initial={{ opacity: 0, y: -5 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
             className="max-w-[300px]"
           >
             <Card width="100%">
@@ -408,20 +419,20 @@ export default function Home() {
           </motion.div>
         </div>
         <motion.div
-          initial={{ opacity: 0, y: -5 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+        initial={{ opacity: 0, y: -5 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
         >
           <Text h3 className="mt-20">
             My digital signature
           </Text>
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, y: -5 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+        initial={{ opacity: 0, y: -5 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
         >
           <Text
             h5
@@ -476,7 +487,7 @@ export default function Home() {
                 <Link
                   color
                   underline
-                  href="https://en.wikipedia.org/wiki/Public-key_cryptography"
+                  href="/pubkey"
                   target="blank"
                 >
                   public key
