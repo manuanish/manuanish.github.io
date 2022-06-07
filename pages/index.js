@@ -282,7 +282,7 @@ export default function Home() {
             }}
           >
             <div className="border-0 border-l-4 pl-6">
-              <Text h4 i>&quotDer Mensch kann tun was er will; er kann aber nicht wollen was er will.&quot </Text>
+              <Text h4 i>&quot;Der Mensch kann tun was er will; er kann aber nicht wollen was er will.&quot; </Text>
               <Text i type="secondary">Man can do what he wills but he cannot will what he wills.</Text>
               <br/>
               <br/>
