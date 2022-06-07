@@ -9,12 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@geist-ui/core": "^2.3.8",
+    "@primer/octicons-react": "^17.3.0",
+    "autoprefixer": "^10.4.7",
+    "framer-motion": "^6.3.10",
+    "inter-ui": "^3.19.3",
     "next": "12.1.6",
+    "postcss": "^8.4.14",
+    "prettier": "^2.6.2",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-icons": "^4.4.0",
+    "tailwindcss": "^3.0.24",
+    "twemoji": "^14.0.2"
   },
   "devDependencies": {
     "eslint": "8.17.0",
-    "eslint-config-next": "12.1.6"
+    "eslint-config-next": "12.1.6",
+    "eslint-config-prettier": "^8.5.0"
   }
 }
