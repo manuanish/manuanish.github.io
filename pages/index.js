@@ -461,7 +461,7 @@ export default function Home() {
                 <Link
                   color
                   underline
-                  herf="https://en.wikipedia.org/wiki/Public-key_cryptography"
+                  href="https://en.wikipedia.org/wiki/Public-key_cryptography"
                 >
                   public key
                 </Link>
