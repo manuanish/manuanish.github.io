@@ -2,8 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    loader: 'default',
-    path: '',
+    loader: "default",
+    path: "",
   },
 };
 

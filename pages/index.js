@@ -3,7 +3,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Twemoji from "@components/Twemoji";
 import * as React from "react";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 import {
   useTheme,
   Card,
@@ -13,14 +13,14 @@ import {
   Code,
   Snippet,
   Collapse,
-  Toggle
+  Toggle,
 } from "@geist-ui/core";
 import {
   CommentDiscussionIcon,
   HeartFillIcon,
   CodeIcon,
   SunIcon,
-  MoonIcon
+  MoonIcon,
 } from "@primer/octicons-react";
 import { AiFillPushpin } from "react-icons/ai";
 import {
@@ -511,20 +511,19 @@ export default function Home() {
         </motion.div>
         <motion.div
           className="mt-[100px] flex justify-center align-center"
-          style={{ color: palette.accents_5 }}
           initial={{ opacity: 0, y: -5 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}
           transition={{ duration: 0.5 }}
         >
-          <span style={{ color: "white" }}>
+          <span>
             <CodeIcon size={16} />
           </span>
-          &nbsp;with &nbsp;
+          <span style={{ color: palette.accents_5 }}>&nbsp;with &nbsp;</span>
           <span style={{ color: palette.magenta }}>
             <HeartFillIcon size={16} />
           </span>
-          &nbsp; by @manuanish
+          <span style={{ color: palette.accents_5 }}>&nbsp; by @manuanish</span>
         </motion.div>
       </div>
     </div>
