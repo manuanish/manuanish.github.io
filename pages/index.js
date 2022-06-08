@@ -16,6 +16,7 @@ import {
   Snippet,
   Collapse,
   Toggle,
+  Badge
 } from "@geist-ui/core";
 import {
   CommentDiscussionIcon,
@@ -208,7 +209,7 @@ export default function Home() {
                       target="_blank"
                     >
                       manusanish
-                    </Link>
+                    </Link> <Badge.Anchor><Badge scale={0.5} type="error" >1</Badge>&nbsp;</Badge.Anchor>
                   </motion.div>
                   <motion.div
                     className="flex mt-3"
@@ -317,6 +318,7 @@ export default function Home() {
             carefully planned to achieve a particular aim.
           </Text>
         </motion.div>
+
         <div className="flex space-evenly justify-center mt-10 gap-5 flex-wrap">
           <motion.div
           initial={{ opacity: 0, y: -5 }}
@@ -497,7 +499,7 @@ export default function Home() {
           <Snippet
             symbol=""
             text={"1D6AA03AFB0BFB9A38D9D0BC5EE05F6C1C82CE5F"}
-            width="250px"
+            width="auto"
           />
         </motion.div>
         <motion.div

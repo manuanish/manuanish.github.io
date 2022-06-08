@@ -19,3 +19,7 @@ html {
   height: 1em;
   vertical-align: -0.125em;
 }
+
+.math-display{
+  overflow-x: scroll;
+}
