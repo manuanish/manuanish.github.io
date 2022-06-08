@@ -48,8 +48,10 @@ export default function Header(props) {
       <div className="w-full mt-8">
         <Breadcrumbs>
           <Breadcrumbs.Item href="#" onClick={(e) => {setState(true); e.preventDefault();}}>
-            <HomeFillIcon size={20}/>
-            manuanish
+           { theme == "dark" ? <span style={{color: '#3291ff', backgroundColor: 'rgba(7, 97, 209, 0.25)', padding: 4, paddingRight: 5, borderRadius: 5}}><HomeFillIcon size={20}/>
+           manuanish</span>: <span style={{color: '#0070f3', backgroundColor: 'rgba(7, 97, 209, 0.1)', padding: 4, paddingRight: 5, borderRadius: 5}}><HomeFillIcon size={20}/>
+           manuanish</span>}
+
           </Breadcrumbs.Item>
           {props.dir.map((file) => (
             <Breadcrumbs.Item
