@@ -424,6 +424,51 @@ export default function Home() {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
         >
+          <Text h2 className="mt-20">
+            Blog
+          </Text>
+        </motion.div>
+        <motion.div
+        initial={{ opacity: 0, y: -5 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        >
+          <Text
+            h4
+            style={{ color: palette.accents_5 }}
+            className="max-w-[600px]"
+          >
+            /bläɡ/ a regularly updated website or web page, typically one run by an individual or small group, that is written in an informal or conversational style.
+          </Text>
+        </motion.div>
+        <motion.div
+        initial={{ opacity: 0, y: -5 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="mt-5"
+        >
+        <Card width="100%">
+          <Text h4 my={0}>
+            Beach/Summer Graph Contest - 7/6/22
+          </Text>
+          <Text>
+            A short explaination on how I created a high quality graph.
+          </Text>
+          <Card.Footer>
+            <Link block icon target="_blank" href="/blog/beach-graph-contest">
+              Read more!
+            </Link>
+          </Card.Footer>
+        </Card>
+        </motion.div>
+        <motion.div
+        initial={{ opacity: 0, y: -5 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        >
           <Text h3 className="mt-20">
             My digital signature
           </Text>

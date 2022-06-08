@@ -66,7 +66,7 @@ export default function Header(props) {
         visible={state}
         onClose={() => setState(false)}
         placement="left"
-        width="330px"
+        width="332px"
       >
         <Code>manuanish.vercel.app</Code>
         <Drawer.Subtitle>File system</Drawer.Subtitle>
@@ -74,6 +74,15 @@ export default function Header(props) {
         <Drawer.Content>
           <Tree>
             <Tree.Folder name="pages">
+              <Tree.Folder name="blog">
+                <Tree.File
+                  name="beach-graph-contest.mdx"
+                  onClick={() => {
+                    router.push("/blog/beach-graph-contest");
+                    setState(false);
+                  }}
+                />
+              </Tree.Folder>
               <Tree.File
                 name="index.js"
                 onClick={() => {
