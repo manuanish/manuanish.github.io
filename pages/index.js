@@ -81,6 +81,21 @@ export default function Home() {
     }
   };
 
+  const handleHandClick = () => {
+    setTimesHovered(timesHovered + 1);
+    console.log(timesHovered);
+    if (timesHovered % 4 == 0) {
+      setToast({
+        text: (
+          <div>
+            Hello there! <Twemoji emoji="👋" />
+          </div>
+        ),
+        delay: 4000,
+      });
+    }
+  };
+
   return (
     <div>
       <Head>
@@ -115,7 +130,9 @@ export default function Home() {
                 >
                   <motion.div
                     onMouseEnter={handleHandHover}
+                    onClick={handleHandClick}
                     whileHover={{ opacity: 1, y: 0, rotate: 10 }}
+                    whileTap={{ opacity: 1, y: 0, rotate: 10 }}
                     transition={{
                       duration: 0.5,
                       type: "spring",

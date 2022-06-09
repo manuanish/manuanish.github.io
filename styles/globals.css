@@ -31,3 +31,12 @@ pre[class*="language-"] {
 code[class*="language-"] {
   background: #111;
 }
+
+.snippet {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.snippet::-webkit-scrollbar {
+    display: none; 
+}

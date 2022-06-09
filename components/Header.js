@@ -143,11 +143,12 @@ export default function Header(props) {
               width="100%"
               text={[
                 `{`,
-                `  path: ${router.pathname},`,
+                `  path: "${router.pathname}",`,
                 `  views: null,`,
                 `  impressions: null`,
                 `}`,
               ]}
+              className="snippet"
             />
           </div>
           <br />
