@@ -17,6 +17,7 @@ import {
   Collapse,
   Toggle,
   Badge,
+  useToasts,
 } from "@geist-ui/core";
 import {
   CommentDiscussionIcon,
@@ -34,10 +35,52 @@ import {
   FaTwitch,
   FaYoutube,
 } from "react-icons/fa";
+import Confetti from "react-confetti";
 
 export default function Home() {
   const router = useRouter();
+  const { setToast } = useToasts();
   const { palette } = useTheme();
+  const [construction1, setConstruction1] = React.useState("group visible");
+  const [construction2, setConstruction2] = React.useState("group hidden");
+  const [runConfetti, setRunConfetti] = React.useState(false);
+  const [hasRun, setHasRun] = React.useState(false);
+  const [timesHovered, setTimesHovered] = React.useState(0);
+
+  const handleConstructionClick = () => {
+    setConstruction1("hidden");
+    setConstruction2("visible");
+    setRunConfetti(true);
+    if (hasRun == false) {
+      setToast({
+        text: (
+          <div>
+            You fixed it! <Twemoji emoji="🎉" />
+          </div>
+        ),
+        delay: 4000,
+      });
+      setHasRun(true);
+    }
+
+    console.log("yeah");
+  };
+
+  const handleHandHover = () => {
+    setTimesHovered(timesHovered + 1);
+    console.log(timesHovered);
+    if (timesHovered % 4 == 0) {
+      setToast({
+        text: (
+          <div>
+            Hello to you too! <Twemoji emoji="👋" />
+          </div>
+        ),
+        delay: 4000,
+      });
+    }
+  };
+
   return (
     <div>
       <Head>
@@ -70,7 +113,17 @@ export default function Home() {
                     stiffness: 200,
                   }}
                 >
-                  <Twemoji emoji="👋" />
+                  <motion.div
+                    onMouseEnter={handleHandHover}
+                    whileHover={{ opacity: 1, y: 0, rotate: 10 }}
+                    transition={{
+                      duration: 0.5,
+                      type: "spring",
+                      stiffness: 250,
+                    }}
+                  >
+                    <Twemoji emoji="👋" />
+                  </motion.div>
                 </motion.div>
               </div>
               <br />
@@ -96,39 +149,102 @@ export default function Home() {
                   transition={{ duration: 0.5, delay: 2.5 }}
                 >
                   This site is under&nbsp;
-                  <div className="relative w-fit flex ">
-                    <span className="transform -rotate-12">c</span>
-                    <span className="transform -rotate-6 translate-x-1 translate-y-1">
-                      o
-                    </span>
-                    <span className="translate-y-[-3px] translate-x-1">n</span>
-                    <span className="transform translate-x-1 -rotate-[5deg]">
-                      s
-                    </span>
-                    <span className="transform translate-x-2 -rotate-[10deg]">
-                      t
-                    </span>
-                    <span className="transform translate-x-3 -rotate-[-6deg]">
-                      r
-                    </span>
-                    <span className="transform translate-x-3 -rotate-[6deg]">
-                      u
-                    </span>
-                    <span className="transform translate-x-4 translate-y-1 -rotate-[-6deg]">
-                      c
-                    </span>
-                    <span className="transform translate-x-5 -rotate-[6deg]">
-                      t
-                    </span>
-                    <span className="transform translate-x-5 translate-y-[-1px] -rotate-[-6deg]">
-                      i
-                    </span>
-                    <span className="transform translate-x-7 -rotate-[-6deg]">
-                      o
-                    </span>
-                    <span className="transform translate-x-7 -rotate-[7deg]">
-                      n
-                    </span>
+                  <div
+                    className="w-fit pr-8 duration-500"
+                    onClick={() => {
+                      handleConstructionClick();
+                    }}
+                  >
+                    <div className={`relative w-fit flex ${construction1}`}>
+                      <span className="transform -rotate-12 group-hover:-rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 duration-500">
+                        c
+                      </span>
+                      <span className="transform -rotate-6 translate-x-1 translate-y-1 group-hover:-rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 duration-500">
+                        o
+                      </span>
+                      <span className="translate-y-[-3px] translate-x-1 group-hover:-rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 duration-500">
+                        n
+                      </span>
+                      <span className="transform translate-x-1 -rotate-[5deg] group-hover:-rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 duration-500">
+                        s
+                      </span>
+                      <span className="transform translate-x-2 -rotate-[10deg] group-hover:-rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 duration-500">
+                        t
+                      </span>
+                      <span className="transform translate-x-3 -rotate-[-6deg] group-hover:-rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 duration-500">
+                        r
+                      </span>
+                      <span className="transform translate-x-3 -rotate-[6deg] group-hover:-rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 duration-500">
+                        u
+                      </span>
+                      <span className="transform translate-x-4 translate-y-1 -rotate-[-6deg] group-hover:-rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 duration-500">
+                        c
+                      </span>
+                      <span className="transform translate-x-5 -rotate-[6deg] group-hover:-rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 duration-500">
+                        t
+                      </span>
+                      <span className="transform translate-x-5 translate-y-[-1px] -rotate-[-6deg] group-hover:-rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 duration-500">
+                        i
+                      </span>
+                      <span className="transform translate-x-7 -rotate-[-6deg] group-hover:-rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 duration-500">
+                        o
+                      </span>
+                      <span className="transform translate-x-7 -rotate-[7deg] group-hover:-rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 duration-500">
+                        n
+                      </span>
+                    </div>
+                    <div className={`relative w-fit flex ${construction2}`}>
+                      <span className="transform -rotate-12 -rotate-0 translate-x-0 translate-y-0 duration-500">
+                        c
+                      </span>
+                      <span className="transform -rotate-6 translate-x-1 translate-y-1 -rotate-0 translate-x-0 translate-y-0 duration-500">
+                        o
+                      </span>
+                      <span className="translate-y-[-3px] translate-x-1 -rotate-0 translate-x-0 translate-y-0 duration-500">
+                        n
+                      </span>
+                      <span className="transform translate-x-1 -rotate-[5deg] -rotate-0 translate-x-0 translate-y-0 duration-500">
+                        s
+                      </span>
+                      <span className="transform translate-x-2 -rotate-[10deg] -rotate-0 translate-x-0 translate-y-0 duration-500">
+                        t
+                      </span>
+                      <span className="transform translate-x-3 -rotate-[-6deg] -rotate-0 translate-x-0 translate-y-0 duration-500">
+                        r
+                      </span>
+                      <span className="transform translate-x-3 -rotate-[6deg] -rotate-0 translate-x-0 translate-y-0 duration-500">
+                        u
+                      </span>
+                      <span className="transform translate-x-4 translate-y-1 -rotate-[-6deg] -rotate-0 translate-x-0 translate-y-0 duration-500">
+                        c
+                      </span>
+                      <span className="transform translate-x-5 -rotate-[6deg] -rotate-0 translate-x-0 translate-y-0 duration-500">
+                        t
+                      </span>
+                      <span className="transform translate-x-5 translate-y-[-1px] -rotate-[-6deg] -rotate-0 translate-x-0 translate-y-0 duration-500">
+                        i
+                      </span>
+                      <span className="transform translate-x-7 -rotate-[-6deg] -rotate-0 translate-x-0 translate-y-0 duration-500">
+                        o
+                      </span>
+                      <span className="transform translate-x-7 -rotate-[7deg] -rotate-0 translate-x-0 translate-y-0 duration-500">
+                        n
+                      </span>
+                    </div>
+                    <Confetti
+                      width={330}
+                      numberOfPieces={50}
+                      initialVelocityY={20}
+                      confettiSource={{
+                        w: 10,
+                        h: 10,
+                        x: 100,
+                        y: 50,
+                      }}
+                      run={runConfetti}
+                      colors={["#3291ff"]}
+                      recycle={false}
+                    />
                   </div>
                 </motion.div>
               </div>
