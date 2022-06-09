@@ -6,8 +6,12 @@ import {
   Divider,
   Tree,
   Toggle,
-  Button
+  Button,
+  Description,
+  Snippet
 } from "@geist-ui/core";
+
+import FileTree from "@components/FileTree";
 
 import { HomeFillIcon, SunIcon, MoonIcon, GraphIcon } from "@primer/octicons-react";
 import * as React from "react";
@@ -15,7 +19,6 @@ import { useRouter } from "next/router";
 
 export default function Header(props) {
   const [state, setState] = React.useState(false);
-  const [state2, setState2] = React.useState(false);
   const [checked, setChecked] = React.useState(true);
   const [theme, setTheme] = React.useState("dark");
   const router = useRouter();
@@ -44,29 +47,32 @@ export default function Header(props) {
     }
   };
 
+  const changeState = () => {
+    setState(false);
+  }
+
   return (
     <div className="flex">
-      <div className="w-full mt-8 grow">
-        <Breadcrumbs>
-          <Breadcrumbs.Item href="#" onClick={(e) => {setState(true); e.preventDefault();}}>
-           { theme == "dark" ? <span style={{color: '#3291ff', backgroundColor: 'rgba(7, 97, 209, 0.25)', padding: 4, paddingRight: 5, borderRadius: 5}}><HomeFillIcon size={20}/>
-           manuanish</span>: <span style={{color: '#0070f3', backgroundColor: 'rgba(7, 97, 209, 0.1)', padding: 4, paddingRight: 5, borderRadius: 5}}><HomeFillIcon size={20}/>
-           manuanish</span>}
+      <div className="mt-8 grow">
+        <div className="">
+        <Breadcrumbs className="overflow-scroll">
+            <Breadcrumbs.Item href="#" onClick={(e) => {setState(true); e.preventDefault();}}>
+             { theme == "dark" ? <span style={{color: '#3291ff', backgroundColor: 'rgba(7, 97, 209, 0.25)', padding: 4, paddingRight: 5, borderRadius: 5}}><HomeFillIcon size={20}/>
+             manuanish</span>: <span style={{color: '#0070f3', backgroundColor: 'rgba(7, 97, 209, 0.1)', padding: 4, paddingRight: 5, borderRadius: 5}}><HomeFillIcon size={20}/>
+             manuanish</span>}
 
-          </Breadcrumbs.Item>
-          {props.dir.map((file) => (
-            <Breadcrumbs.Item
-              href="#"
-              onClick={(e) => {setState(true); e.preventDefault();}}
-              key={file}
-            >
-              {file}
             </Breadcrumbs.Item>
-          ))}
-        </Breadcrumbs>
-      </div>
-      <div className="mt-10">
-        <Link href="#" block onClick={(e) => {setState2(true); e.preventDefault();}}><GraphIcon size={16} /></Link>
+            {props.dir.map((file) => (
+              <Breadcrumbs.Item
+                href="#"
+                onClick={(e) => {setState(true); e.preventDefault();}}
+                key={file}
+              >
+                {file}
+              </Breadcrumbs.Item>
+            ))}
+          </Breadcrumbs>
+        </div>
       </div>
       <Drawer
         visible={state}
@@ -75,62 +81,31 @@ export default function Header(props) {
         width="332px"
       >
         <Code>manuanish.vercel.app</Code>
-        <Drawer.Subtitle>File system</Drawer.Subtitle>
-        <Divider />
+        <Drawer.Subtitle>Metadata</Drawer.Subtitle>
+
         <Drawer.Content>
-          <Tree>
-            <Tree.Folder name="pages">
-              <Tree.Folder name="blog">
-                <Tree.File
-                  name="beach-graph-contest.mdx"
-                  onClick={() => {
-                    router.push("/blog/beach-graph-contest");
-                    setState(false);
-                  }}
-                />
-              </Tree.Folder>
-              <Tree.File
-                name="index.js"
-                onClick={() => {
-                  router.push("/");
-                  setState(false);
-                }}
-              />
-            </Tree.Folder>
-            <Tree.Folder name="public">
-              <Tree.File
-                name="README.md"
-                onClick={() => {
-                  router.push("/readme");
-                  setState(false);
-                }}
-              />
-              <Tree.File
-                name="pubkey.txt"
-                onClick={() => {
-                  router.push("/pubkey");
-                  setState(false);
-                }}
-              />
-            </Tree.Folder>
-          </Tree>
-        </Drawer.Content>
-        <div className="flex gap-2 justify-center w-full mt-20">
-          <SunIcon />
-          <Toggle checked={checked} onClick={handleClick} />
-          <MoonIcon />
-        </div>
-      </Drawer>
-      <Drawer
-        visible={state2}
-        onClose={() => setState2(false)}
-        placement="right"
-        width="332px"
-      >
-        <Code>manuanish.vercel.app</Code>
-        <Drawer.Subtitle>Page Statistics</Drawer.Subtitle>
-        <Divider />
-        <Drawer.Content>
+        <br/>
+          <Description title="Files" content="Explore all public page routes." />
+          <br/>
+          <FileTree func={changeState}/>
+          <br/>
+          <Divider/>
+          <br/>
+          <Description title="Statistics" content="Information about the current page." />
+          <br/>
+          <div className="flex">
+          <Snippet symbol="" type="lite" width="100%" text={[`{`, `  path: ${router.pathname},`, `  views: null,`, `  impressions: null`,`}`]}/>
+          </div>
+          <br/>
+          <Divider/>
+          <br/>
+          <Description title="Theme" content="Change the website's color palette." />
+          <br/>
+          <div className="flex gap-2 justify-center w-full">
+            <SunIcon />
+            <Toggle checked={checked} onClick={handleClick} />
+            <MoonIcon />
+          </div>
         </Drawer.Content>
       </Drawer>
     </div>
