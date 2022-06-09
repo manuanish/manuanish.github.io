@@ -296,8 +296,8 @@ export default function Home() {
             >
               <Card width="100%">
                 <Card.Content>
-                  <Text h3 my={0}>
-                    <CommentDiscussionIcon size={28} />
+                  <Text h3 my={0} className="flex">
+                    <Twemoji emoji="📮" />
                     &nbsp;&nbsp;Contact
                   </Text>
                 </Card.Content>
@@ -452,7 +452,7 @@ export default function Home() {
         >
           <Text h2 className="mt-20">
             {" "}
-            Projects
+            <Twemoji emoji="📂"/> Projects
           </Text>
         </motion.div>
         <motion.div
@@ -579,7 +579,7 @@ export default function Home() {
           transition={{ duration: 0.5 }}
         >
           <Text h2 className="mt-20">
-            Blog
+            <Twemoji emoji="📖" /> Blog
           </Text>
         </motion.div>
         <motion.div
@@ -626,7 +626,7 @@ export default function Home() {
           transition={{ duration: 0.5 }}
         >
           <Text h3 className="mt-20">
-            My digital signature
+            <Twemoji emoji="🔐"/> My digital signature
           </Text>
         </motion.div>
         <motion.div
@@ -664,7 +664,7 @@ export default function Home() {
           transition={{ duration: 0.5 }}
         >
           <Collapse.Group>
-            <Collapse title="Steps to verify">
+            <Collapse title={<div><Twemoji emoji="✅"/>&nbsp;Steps to verify</div>}>
               <motion.div
                 initial={{ opacity: 0, y: -5 }}
                 whileInView={{ opacity: 1, y: 0 }}
