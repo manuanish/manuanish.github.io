@@ -45,7 +45,7 @@ export default function Home() {
   const [construction2, setConstruction2] = React.useState("group hidden");
   const [runConfetti, setRunConfetti] = React.useState(false);
   const [hasRun, setHasRun] = React.useState(false);
-  const [timesHovered, setTimesHovered] = React.useState(0);
+  const [timesHovered, setTimesHovered] = React.useState(1);
 
   const handleConstructionClick = () => {
     setConstruction1("hidden");
@@ -73,7 +73,7 @@ export default function Home() {
       setToast({
         text: (
           <div>
-            Hello to you too! <Twemoji emoji="👋" />
+            Hello there! <Twemoji emoji="👋" />
           </div>
         ),
         delay: 4000,
