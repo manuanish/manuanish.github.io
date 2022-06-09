@@ -32,4 +32,4 @@ yarn-error.log*
 .vercel
 
 # mdx files (because prettier is broken)
-.mdx
+*.mdx
