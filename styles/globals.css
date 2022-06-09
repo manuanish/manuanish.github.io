@@ -23,3 +23,11 @@ html {
 .math-display {
   overflow-x: scroll;
 }
+
+pre[class*="language-"] {
+  background: #111;
+}
+
+code[class*="language-"] {
+  background: #111;
+}
