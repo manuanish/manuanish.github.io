@@ -190,7 +190,7 @@ export default function Home() {
                       target="_blank"
                     >
                       manusanish
-                    </Link>
+                    </Link><Badge.Anchor><Badge scale={0.5} type="error" >1</Badge>&nbsp;</Badge.Anchor>
                   </motion.div>
                   <motion.div
                     className="flex mt-3"

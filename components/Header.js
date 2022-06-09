@@ -9,12 +9,13 @@ import {
   Button
 } from "@geist-ui/core";
 
-import { HomeFillIcon, SunIcon, MoonIcon } from "@primer/octicons-react";
+import { HomeFillIcon, SunIcon, MoonIcon, GraphIcon } from "@primer/octicons-react";
 import * as React from "react";
 import { useRouter } from "next/router";
 
 export default function Header(props) {
   const [state, setState] = React.useState(false);
+  const [state2, setState2] = React.useState(false);
   const [checked, setChecked] = React.useState(true);
   const [theme, setTheme] = React.useState("dark");
   const router = useRouter();
@@ -44,8 +45,8 @@ export default function Header(props) {
   };
 
   return (
-    <div>
-      <div className="w-full mt-8">
+    <div className="flex">
+      <div className="w-full mt-8 grow">
         <Breadcrumbs>
           <Breadcrumbs.Item href="#" onClick={(e) => {setState(true); e.preventDefault();}}>
            { theme == "dark" ? <span style={{color: '#3291ff', backgroundColor: 'rgba(7, 97, 209, 0.25)', padding: 4, paddingRight: 5, borderRadius: 5}}><HomeFillIcon size={20}/>
@@ -63,6 +64,9 @@ export default function Header(props) {
             </Breadcrumbs.Item>
           ))}
         </Breadcrumbs>
+      </div>
+      <div className="mt-10">
+        <Link href="#" block onClick={(e) => {setState2(true); e.preventDefault();}}><GraphIcon size={16} /></Link>
       </div>
       <Drawer
         visible={state}
@@ -116,6 +120,18 @@ export default function Header(props) {
           <Toggle checked={checked} onClick={handleClick} />
           <MoonIcon />
         </div>
+      </Drawer>
+      <Drawer
+        visible={state2}
+        onClose={() => setState2(false)}
+        placement="right"
+        width="332px"
+      >
+        <Code>manuanish.vercel.app</Code>
+        <Drawer.Subtitle>Page Statistics</Drawer.Subtitle>
+        <Divider />
+        <Drawer.Content>
+        </Drawer.Content>
       </Drawer>
     </div>
   );
