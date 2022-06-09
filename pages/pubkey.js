@@ -2,7 +2,7 @@ import Header from "@components/Header";
 
 export default function pubkey() {
   return (
-    <div className="md:p-20 lg:p-20 lg:pt-0 md:pt-0 p-5">
+    <div>
       <Header dir={["pubkey"]} />
       <div className="flex justify-center">
         <pre className="w-fit">

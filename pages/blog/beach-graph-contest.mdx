@@ -1,47 +1,49 @@
 import Header from "@components/Header";
-import Author from "@components/Author"
+import Author from "@components/Author";
 import BlogImage from "@components/BlogImage";
+import BlogTitle from "@components/BlogTitle";
 
-<div className="md:p-20 lg:p-20 lg:pt-0 md:pt-0 p-5">
 <Header dir={["blog", "beach-graph-contest"]} />
-<br/>
-<br/>
-<br/>
-<div clasName="markdown-body t-20">
-# Beach/Summer Graph Contest
-<Author contributors={["manuanish"]} readTime={5}/>
-<br/>
----
-In this post I will be explaining how I created my graph for the [Beach/Summer Graph Contest](https://princetonk12.instructure.com/courses/6508/discussion_topics/213397).
-<br/>
-<br/>
-### Defining the pixel
-Let's begin by looking at the graph of the following function. For *each pixel* I have used the following polar graph:
+<br />
+<br />
+<br />
+
+<BlogTitle>Beach/Summer Graph Contest</BlogTitle>
+<Author userName="manuanish" readTime={5} date="7/6/22" />
+<br />
+--- In this post I will be explaining how I created my graph for the [Beach/Summer
+Graph Contest](https://princetonk12.instructure.com/courses/6508/discussion_topics/213397).
+<br />
+<br />
+### Defining the pixel Let's begin by looking at the graph of the following
+function. For *each pixel* I have used the following polar graph:
 
 $$
 r \leq \sin(\theta)
 $$
 
 If we graph this, we get a circle at the center of the coordinate plane. (As shown below)
-<br/>
-<BlogImage src="/blog/circle.png" width={2880} height={1538}/>
-<br/>
-<br/>
+
+<br />
+<BlogImage src="/blog/circle.png" width={2880} height={1538} />
+<br />
+<br />
 Using this very basic starting point, we can now create all sorts of images.
-<br/>
-<br/>
-### Creating the python script
-Using the python library `Pillow`, we can get the exact colors of pixels at certain points in an image. This can be done quite easily like so:
-<br/>
-<br/>
-```py
-from PIL import Image
+<br />
+<br />
+### Creating the python script Using the python library `Pillow`, we can get the
+exact colors of pixels at certain points in an image. This can be done quite easily
+like so:
+<br />
+<br />
+```py from PIL import Image
 
 im = Image.open('small-beach.jpg')
 pix = im.load()
 
 print(pix[0, 0])
-```
+
+````
 <br/>
 <br/>
 For example, the code above will return the color of the pixel at position `0, 0`. We can run this code in a loop to reapeat this process for each pixel
@@ -67,31 +69,46 @@ for i in range(300):
         ax.add_patch(plt.Circle(((j/im.size[1]), (i/im.size[0])), 1/1000, color=cc(pix[i, j])))
 
 fig.savefig('output.png')
-```
-<br/>
-<br/>
+````
+
+<br />
+<br />
 
 ### Using the script
+
 Using the script we can retrive extremely high quality images quite easily. For example, consider the following image:
-<br/>
-<br/>
-<BlogImage src="/blog/small-beach.jpg" width={400} height={400} caption="Image source: Microsoft"/>
-<br/>
-<br/>
+
+<br />
+<br />
+<BlogImage
+  src="/blog/small-beach.jpg"
+  width={400}
+  height={400}
+  caption="Image source: Microsoft"
+/>
+<br />
+<br />
 If we run the script, we obtain the following image:
-<br/>
-<br/>
-<BlogImage src="/blog/output.png" width={500} height={500} caption="Final graph."/>
-<br/>
-<br/>
-Notice that the image is rotated. Why is this? Because of the way the pixels were graphed the image turns out to be $90^\circ$ rotated than
-it was initially made.
-<br/>
-<br/>
-<br/>
+<br />
+<br />
+<BlogImage
+  src="/blog/output.png"
+  width={500}
+  height={500}
+  caption="Final graph."
+/>
+<br />
+<br />
+Notice that the image is rotated. Why is this? Because of the way the pixels were
+graphed the image turns out to be $90^\circ$ rotated than it was initially made.
+<br />
+<br />
+<br />
 
 #### Some lower quality images
+
 Because the high quality image can be quite hard to believe here are some of the zoomed in images of the script
+
 <br/>
 <br/>
 <BlogImage src="/blog/output0.png" width={500} height={500} caption="Zoomed in on the sky extremely"/>
@@ -113,6 +130,5 @@ $$
 $$
 
 #### Github Repo
+
 For those who are interested in look at the source code for this little project, it can be found here: https://github.com/manuanish/beach-graph
-</div>
-</div>

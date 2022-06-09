@@ -2,7 +2,7 @@ import Header from "@components/Header";
 
 export default function readme() {
   return (
-    <div className="md:p-20 lg:p-20 lg:pt-0 md:pt-0 p-5">
+    <div>
       <Header dir={["README"]} />
       <div className="flex justify-center">
         <pre className="w-[600px]">

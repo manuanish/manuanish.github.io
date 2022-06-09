@@ -1,32 +1,39 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  Text,
-} from "@geist-ui/core";
+import { Text, User } from "@geist-ui/core";
+import * as React from "react";
 
 export default function Author(props) {
+  const [userData, setUserData] = React.useState(null);
+  const [fetched, setFetched] = React.useState(false);
+
+  React.useEffect(() => {
+    if (fetched == false) {
+      fetch(`https://api.github.com/users/${props.userName}`)
+        .then((res) => res.json())
+        .then((json) => {
+          setUserData(json);
+        });
+      setFetched(true);
+    }
+  });
+
   return (
     <div className="flex gap-1">
-      <Text className="text-lg" type="secondary">Written by&nbsp;</Text>
-      {props.contributors.map((userName) => (
-        <div
-          className="cursor-pointer rounded-full border-2 w-[30px] h-[30px] mt-[16px] border-slate-500 hover:border-slate-400"
-          key={userName}
+      {userData ? (
+        <User
+          src={`https://github.com/${props.userName}.png`}
+          name={userData.name}
         >
-          <Link href={`https://github.com/${userName}`} passHref>
-            <Image
-              alt={userName}
-              width="30"
-              height="30"
-              className="rounded-full"
-              src={`https://github.com/${userName}.png`}
-            />
-          </Link>
-        </div>
-      ))}
-      &nbsp;
-      <Text className="text-lg" type="secondary">
-        &#8212;&nbsp; {props.readTime} min read
+          <User.Link href={`https://github.com/${props.userName}`}>
+            @{props.userName}
+          </User.Link>
+        </User>
+      ) : (
+        <div></div>
+      )}
+      <Text type="secondary">
+        &#8212; {props.date}, {props.readTime} min read
       </Text>
     </div>
   );

@@ -1,9 +1,7 @@
-import {
-  Tree,
-} from "@geist-ui/core";
+import { Tree } from "@geist-ui/core";
 import { useRouter } from "next/router";
 
-export default function FileTree(props){
+export default function FileTree(props) {
   const router = useRouter();
 
   return (
@@ -14,7 +12,7 @@ export default function FileTree(props){
             name="beach-graph-contest.mdx"
             onClick={() => {
               router.push("/blog/beach-graph-contest");
-              props.func()
+              props.func();
             }}
           />
         </Tree.Folder>
@@ -22,7 +20,7 @@ export default function FileTree(props){
           name="index.js"
           onClick={() => {
             router.push("/");
-            props.func()
+            props.func();
           }}
         />
       </Tree.Folder>
@@ -31,14 +29,14 @@ export default function FileTree(props){
           name="README.md"
           onClick={() => {
             router.push("/readme");
-            props.func()
+            props.func();
           }}
         />
         <Tree.File
           name="pubkey.txt"
           onClick={() => {
             router.push("/pubkey");
-            props.func()
+            props.func();
           }}
         />
       </Tree.Folder>

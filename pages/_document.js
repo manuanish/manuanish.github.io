@@ -17,7 +17,10 @@ export default function Document() {
           href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
         />
       </Head>
-      <body suppressHydrationWarning>
+      <body
+        suppressHydrationWarning
+        className="md:p-20 lg:p-[180px] lg:pt-0 md:pt-0 p-5 lg:pb-10 md:pb-10"
+      >
         <div>
           <Main />
           <NextScript />
