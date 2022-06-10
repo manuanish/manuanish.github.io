@@ -324,12 +324,14 @@ export default function Home() {
                     >
                       manusanish
                     </Link>
-                    <Badge.Anchor>
-                      <Badge scale={0.5} type="error">
-                        1
-                      </Badge>
-                      &nbsp;
-                    </Badge.Anchor>
+                    <div className="hidden">
+                      <Badge.Anchor>
+                        <Badge scale={0.5} type="error">
+                          1
+                        </Badge>
+                        &nbsp;
+                      </Badge.Anchor>
+                    </div>
                   </motion.div>
                   <motion.div
                     className="flex mt-3"
@@ -349,12 +351,14 @@ export default function Home() {
                     >
                       manusanish
                     </Link>{" "}
-                    <Badge.Anchor>
-                      <Badge scale={0.5} type="error">
-                        1
-                      </Badge>
-                      &nbsp;
-                    </Badge.Anchor>
+                    <div className="hidden">
+                      <Badge.Anchor>
+                        <Badge scale={0.5} type="error">
+                          1
+                        </Badge>
+                        &nbsp;
+                      </Badge.Anchor>
+                    </div>
                   </motion.div>
                   <motion.div
                     className="flex mt-3"
@@ -373,6 +377,14 @@ export default function Home() {
                       target="_blank"
                     >
                       manuanish
+                      <div className="hidden">
+                        <Badge.Anchor>
+                          <Badge scale={0.5} type="error">
+                            1
+                          </Badge>
+                          &nbsp;
+                        </Badge.Anchor>
+                      </div>
                     </Link>
                   </motion.div>
                   <motion.div
@@ -388,6 +400,14 @@ export default function Home() {
                     &nbsp;&nbsp;
                     <Link href="https://twitch.tv/iHxpMC" block target="_blank">
                       iHxpMC
+                      <div className="hidden">
+                        <Badge.Anchor>
+                          <Badge scale={0.5} type="error">
+                            1
+                          </Badge>
+                          &nbsp;
+                        </Badge.Anchor>
+                      </div>
                     </Link>
                   </motion.div>
                   <motion.div
@@ -409,6 +429,14 @@ export default function Home() {
                       }}
                     >
                       iHxp#6160
+                      <div className="hidden">
+                        <Badge.Anchor>
+                          <Badge scale={0.5} type="error">
+                            1
+                          </Badge>
+                          &nbsp;
+                        </Badge.Anchor>
+                      </div>
                     </Link>
                   </motion.div>
                 </Card.Content>
