@@ -477,7 +477,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="w-full sm:max-w-[300px] md:max-w-[300px] lg:max-w-[300px]"
+            className="min-w-[300px] grow"
           >
             <Card width="100%">
               <Text h4 my={0} className="flex">
@@ -507,7 +507,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="w-full sm:max-w-[300px] md:max-w-[300px] lg:max-w-[300px]"
+            className="min-w-[300px] grow"
           >
             <Card width="100%">
               <Text h4 my={0}>
@@ -528,7 +528,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="w-full sm:max-w-[300px] md:max-w-[300px] lg:max-w-[300px]"
+            className="min-w-[300px] grow"
           >
             <Card width="100%">
               <Text h4 my={0}>
@@ -552,7 +552,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="w-full sm:max-w-[300px] md:max-w-[300px] lg:max-w-[300px]"
+            className="min-w-[300px] grow"
           >
             <Card width="100%">
               <Text h4 my={0}>
