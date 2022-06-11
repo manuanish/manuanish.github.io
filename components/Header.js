@@ -10,8 +10,11 @@ import {
   Description,
   Snippet,
 } from "@geist-ui/core";
-import { createClient } from '@supabase/supabase-js'
-export const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+import { createClient } from "@supabase/supabase-js";
+export const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+);
 
 import FileTree from "@components/FileTree";
 
@@ -34,7 +37,8 @@ export default function Header(props) {
   const [currentPageID, setCurrentPageID] = React.useState(null);
   const [hasUpdated, setHasUpdated] = React.useState(false);
   const [hasUpdatedViews, setHasUpdatedViews] = React.useState(false);
-  const [hasUpdatedImpressions, setHasUpdatedImpressions] = React.useState(false);
+  const [hasUpdatedImpressions, setHasUpdatedImpressions] =
+    React.useState(false);
   const router = useRouter();
 
   React.useEffect(() => {
@@ -51,32 +55,40 @@ export default function Header(props) {
     }
 
     async function fetchViews() {
-      var pageNames = []
-      var idList = []
+      var pageNames = [];
+      var idList = [];
 
       try {
-        const { data, error } = await supabase
-        .from('page-data')
-        .select()
+        const { data, error } = await supabase.from("page-data").select();
         var pageData = data;
         for (var i = 0; i < pageData.length; i++) {
-          pageNames.push(pageData[i].pageName)
-          idList.push(pageData[i].id)
+          pageNames.push(pageData[i].pageName);
+          idList.push(pageData[i].id);
         }
-        if (pageNames.includes(router.pathname) == false){
-          if (pageData.length == 0){
+        if (pageNames.includes(router.pathname) == false) {
+          if (pageData.length == 0) {
             const { data, error } = await supabase
-            .from('page-data')
-            .insert([
-              { id: 1, pageName: router.pathname, viewCount: 1, impressionCount: 1 }
-            ])
+              .from("page-data")
+              .insert([
+                {
+                  id: 1,
+                  pageName: router.pathname,
+                  viewCount: 1,
+                  impressionCount: 1,
+                },
+              ]);
             localStorage.setItem(`has_viewed_${router.pathname}`, "true");
           } else {
             const { data, error } = await supabase
-            .from('page-data')
-            .insert([
-              { id: Math.max.apply(Math, idList) + 1, pageName: router.pathname, viewCount: 1, impressionCount: 1 }
-            ])
+              .from("page-data")
+              .insert([
+                {
+                  id: Math.max.apply(Math, idList) + 1,
+                  pageName: router.pathname,
+                  viewCount: 1,
+                  impressionCount: 1,
+                },
+              ]);
             localStorage.setItem(`has_viewed_${router.pathname}`, "true");
           }
         } else {
@@ -87,15 +99,17 @@ export default function Header(props) {
                   var current = new Date();
                   await supabase
                     .from("page-data")
-                    .update({ impressionCount: pageData[i].impressionCount + 1 })
+                    .update({
+                      impressionCount: pageData[i].impressionCount + 1,
+                    })
                     .match({ pageName: router.pathname });
-                    await supabase
-                      .from("page-data")
-                      .update({ lastViewed: current })
-                      .match({ pageName: router.pathname });
-                  setHasUpdatedImpressions(true)
-                  setImpressionCount(pageData[i].impressionCount + 1)
-                  setLastViewed(current)
+                  await supabase
+                    .from("page-data")
+                    .update({ lastViewed: current })
+                    .match({ pageName: router.pathname });
+                  setHasUpdatedImpressions(true);
+                  setImpressionCount(pageData[i].impressionCount + 1);
+                  setLastViewed(current);
                 }
 
                 if (hasUpdatedViews == false) {
@@ -106,22 +120,23 @@ export default function Header(props) {
                   if (hasViewed != "true") {
                     await supabase
                       .from("page-data")
-                      .update({ viewCount: pageData[i].viewCount + 1})
+                      .update({ viewCount: pageData[i].viewCount + 1 })
                       .match({ pageName: router.pathname });
-                    localStorage.setItem(`has_viewed_${router.pathname}`, "true");
-                    setHasUpdatedViews(true)
-                    setViewCount(pageData[i].viewCount + 1)
+                    localStorage.setItem(
+                      `has_viewed_${router.pathname}`,
+                      "true"
+                    );
+                    setHasUpdatedViews(true);
+                    setViewCount(pageData[i].viewCount + 1);
                   } else {
-                    setViewCount(pageData[i].viewCount)
+                    setViewCount(pageData[i].viewCount);
                   }
                 }
-
               }
-              setHasUpdated(true)
+              setHasUpdated(true);
             }
           }
         }
-
       } catch {
         setViewCount("-1");
         setImpressionCount("-1");
@@ -230,11 +245,15 @@ export default function Header(props) {
             <pre className="w-full">
               <Code width="100%">
                 &#123;
-                <br/>
-                &nbsp;&nbsp;path: &quot;{router.pathname}&quot;,<br/>
-                &nbsp;&nbsp;views: &quot;{viewCount}&quot;,<br/>
-                &nbsp;&nbsp;impressions: &quot;{impressionCount}&quot;,<br/>
-                &nbsp;&nbsp;lastViewed: &quot;{lastViewed.toString()}&quot;<br/>
+                <br />
+                &nbsp;&nbsp;path: &quot;{router.pathname}&quot;,
+                <br />
+                &nbsp;&nbsp;views: &quot;{viewCount}&quot;,
+                <br />
+                &nbsp;&nbsp;impressions: &quot;{impressionCount}&quot;,
+                <br />
+                &nbsp;&nbsp;lastViewed: &quot;{lastViewed.toString()}&quot;
+                <br />
                 &#125;
               </Code>
             </pre>

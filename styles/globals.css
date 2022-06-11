@@ -38,5 +38,5 @@ code[class*="language-"] {
 }
 
 .snippet::-webkit-scrollbar {
-    display: none; 
+  display: none;
 }
