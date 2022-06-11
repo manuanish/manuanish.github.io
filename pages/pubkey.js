@@ -1,9 +1,11 @@
 import Header from "@components/Header";
+import PageTitle from "@components/PageTitle";
 
 export default function pubkey() {
   return (
     <div>
       <Header dir={["pubkey"]} />
+      <PageTitle title="manuanish | Public Key" />
       <div className="flex justify-center">
         <pre className="w-fit">
           -----BEGIN PGP PUBLIC KEY BLOCK----- <br /> <br />

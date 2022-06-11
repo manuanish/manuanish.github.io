@@ -1,9 +1,11 @@
 import Header from "@components/Header";
+import PageTitle from "@components/PageTitle";
 
 export default function readme() {
   return (
     <div>
       <Header dir={["README"]} />
+      <PageTitle title="manuanish | README.md"/>
       <div className="flex justify-center">
         <pre className="w-[600px]">
           -----BEGIN PGP SIGNED MESSAGE-----

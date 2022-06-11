@@ -652,6 +652,27 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
+          className="mt-5"
+        >
+          <Card width="100%">
+            <Text h4 my={0}>
+              LXXIII. The end? - 11/6/22
+            </Text>
+            <Text>
+              Closing the puzzle <Link href="https://lxxiii.vercel.app" target="_blank" underline color>LXXIII</Link> that I created.
+            </Text>
+            <Card.Footer>
+              <Link block icon target="_blank" href="/blog/lxxiii-the-end">
+                Read more!
+              </Link>
+            </Card.Footer>
+          </Card>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: -5 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
         >
           <Text h3 className="mt-20">
             <Twemoji emoji="🔐"/> My digital signature
