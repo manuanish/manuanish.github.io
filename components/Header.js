@@ -9,6 +9,9 @@ import {
   Button,
   Description,
   Snippet,
+  Badge,
+  Text,
+  Avatar,
 } from "@geist-ui/core";
 import { createClient } from "@supabase/supabase-js";
 export const supabase = createClient(
@@ -23,6 +26,9 @@ import {
   SunIcon,
   MoonIcon,
   GraphIcon,
+  GitBranchIcon,
+  CommentIcon,
+  CheckIcon,
 } from "@primer/octicons-react";
 import * as React from "react";
 import { useRouter } from "next/router";
@@ -39,6 +45,8 @@ export default function Header(props) {
   const [hasUpdatedViews, setHasUpdatedViews] = React.useState(false);
   const [hasUpdatedImpressions, setHasUpdatedImpressions] =
     React.useState(false);
+  const [commitData, setCommitData] = React.useState({});
+  const [hasFetchedCommitData, setHasFetchedCommitData] = React.useState(false);
   const router = useRouter();
 
   React.useEffect(() => {
@@ -67,28 +75,24 @@ export default function Header(props) {
         }
         if (pageNames.includes(router.pathname) == false) {
           if (pageData.length == 0) {
-            const { data, error } = await supabase
-              .from("page-data")
-              .insert([
-                {
-                  id: 1,
-                  pageName: router.pathname,
-                  viewCount: 1,
-                  impressionCount: 1,
-                },
-              ]);
+            const { data, error } = await supabase.from("page-data").insert([
+              {
+                id: 1,
+                pageName: router.pathname,
+                viewCount: 1,
+                impressionCount: 1,
+              },
+            ]);
             localStorage.setItem(`has_viewed_${router.pathname}`, "true");
           } else {
-            const { data, error } = await supabase
-              .from("page-data")
-              .insert([
-                {
-                  id: Math.max.apply(Math, idList) + 1,
-                  pageName: router.pathname,
-                  viewCount: 1,
-                  impressionCount: 1,
-                },
-              ]);
+            const { data, error } = await supabase.from("page-data").insert([
+              {
+                id: Math.max.apply(Math, idList) + 1,
+                pageName: router.pathname,
+                viewCount: 1,
+                impressionCount: 1,
+              },
+            ]);
             localStorage.setItem(`has_viewed_${router.pathname}`, "true");
           }
         } else {
@@ -145,6 +149,22 @@ export default function Header(props) {
     }
 
     fetchViews();
+
+    async function fetchCommitData() {
+      if (hasFetchedCommitData == false) {
+        fetch(
+          "https://api.github.com/repos/manuanish/manuanish.github.io/branches/main"
+        )
+          .then((res) => res.json())
+          .then((json) => {
+            setCommitData(json);
+          });
+
+        setHasFetchedCommitData(true);
+      }
+    }
+
+    fetchCommitData();
   });
 
   const handleClick = () => {
@@ -258,7 +278,6 @@ export default function Header(props) {
               </Code>
             </pre>
           </div>
-
           <br />
           <Divider />
           <br />
@@ -272,6 +291,40 @@ export default function Header(props) {
             <Toggle checked={checked} onClick={handleClick} />
             <MoonIcon />
           </div>
+          <br />
+          <Divider />
+          <br />
+          <Description
+            title="Branch"
+            content="Current stable version of the website."
+          />
+          <br />
+          {commitData.commit ? (
+            <div className="flex">
+              <div className="grow">
+                <Avatar src="https://github.com/manuanish.png" />
+                <Text span type="secondary" font="14px">
+                  &nbsp;{commitData.commit.commit.message}
+                </Text>
+              </div>
+              <div>
+                <GitBranchIcon />{" "}
+                <Badge>{commitData.commit.sha.substring(0, 7)}</Badge>
+              </div>
+            </div>
+          ) : (
+            <div className="flex">
+              <div className="grow">
+                <Avatar src="https://github.com/manuanish.png" />
+                <Text span type="secondary" font="14px">
+                  &nbsp;null
+                </Text>
+              </div>
+              <div>
+                <GitBranchIcon /> <Badge>null</Badge>
+              </div>
+            </div>
+          )}
         </Drawer.Content>
       </Drawer>
     </div>
