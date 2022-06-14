@@ -351,7 +351,7 @@ export default function Home() {
                     >
                       manusanish
                     </Link>{" "}
-                    <div className="visible">
+                    <div className="hidden">
                       <Badge.Anchor>
                         <Badge scale={0.5} type="error">
                           1
