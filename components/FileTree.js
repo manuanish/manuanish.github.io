@@ -22,6 +22,13 @@ export default function FileTree(props) {
               props.func();
             }}
           />
+          <Tree.File
+            name="lxxiii-uncovered.mdx"
+            onClick={() => {
+              router.push("/blog/lxxiii-uncovered");
+              props.func();
+            }}
+          />
         </Tree.Folder>
         <Tree.File
           name="index.js"
