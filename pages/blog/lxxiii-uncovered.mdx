@@ -3,7 +3,8 @@ import Author from "@components/Author";
 import BlogImage from "@components/BlogImage";
 import BlogTitle from "@components/BlogTitle";
 import PageTitle from "@components/PageTitle";
-import { User } from "@geist-ui/core";
+import { User, Note, Collapse } from "@geist-ui/core";
+import Twemoji from "@components/Twemoji";
 
 <Header dir={["blog", "lxxiii-uncovered"]} />
 <br />
@@ -19,11 +20,13 @@ import { User } from "@geist-ui/core";
 #### Contents
 [Inspiration](#inspiration) <br/>
 [Shout outs (solvers)](#solvers) <br/>
-[Puzzle Solutions]() <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;[Puzzle #1]() <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;[Puzzle #2]() <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;[Puzzle #3]() <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;[Puzzle #4]() <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;[Testimonials](#testimonials) <br/>
+[Puzzle Solutions](#puzzle-solutions) <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;[Puzzle #1.1](#puzzle-1-1) <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;[Puzzle #1.2](#puzzle-1-2) <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;[Puzzle #2](#puzzle-2) <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;[Puzzle #3](#puzzle-3) <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;[Puzzle #4](#puzzle-4) <br/>
 [P.S Note (Decrypted)]() <br/>
 <br/>
 <blockquote>
@@ -37,9 +40,9 @@ __*― Frank Herbert, Dune*__
 
 <h3 id="inspiration"></h3>
 
-### ✨ Inspiration
-If you did not already know, the puzzle was heavily inspired by [Cicada 3301](https://en.wikipedia.org/wiki/Cicada_3301)
-and if you are unfamiliar with this organization, I would highly recommend that you check out the video below 👇
+### <Twemoji emoji="✨" /> Inspiration
+If you did not already know, LXXIII was heavily inspired by [Cicada 3301](https://en.wikipedia.org/wiki/Cicada_3301)
+and if you are unfamiliar with this puzzle, I would highly recommend that you check out the video below <Twemoji emoji="👇" />
 
 <br/>
 
@@ -51,13 +54,13 @@ and if you are unfamiliar with this organization, I would highly recommend that 
 
 <h3 id="solvers"></h3>
 
-### 📣 Shout outs (solvers)
+### <Twemoji emoji="📣" /> Shout outs (solvers)
 I would like to briefly thank everyone who attempted LXXIII. The response I got from everyone was mindblowing
 and I hope you enjoyed solving the puzzle as much as I did creating it.
 
 <br/>
 
-<div className="flex flex-wrap gap-5">
+<div className="flex flex-wrap gap-5 p-5">
 <User src="" name="Connor Stewart" />
 <User src="" name="Ethan L." />
 <User src="" name="Zachary Deng" />
@@ -73,9 +76,89 @@ and I hope you enjoyed solving the puzzle as much as I did creating it.
 <User src="" name="Nathan Myers" />
 <User src="" name="Shrey Khetan" />
 <User src="" name="Ron Aung" />
-<User src="" name="zee arrr" />
+<User src="/blog/solvers/zee_arr.jpg" name="zee arrr"><User.Link href="https://www.instagram.com/zee_arrr/"> @zee_arrr</User.Link></User>
 <User src="" name="Aman Kapur" />
 <User src="" name="Massimo Mazucci" />
 <User src="" name="Christopher Consoli" />
 <User src="" name="Ross Farhi" />
 </div>
+<br/>
+
+<h4 id="testimonials"></h4>
+#### Testimonials
+<div className="flex flex-row overflow-scroll">
+  <div style={{minWidth: '300px', maxWidth: '300px', marginRight: '64px'}}>
+    <blockquote style={{minWidth: '300px', maxWidth: '300px'}}>
+    *"Very well done and an interesting ARG. The 6th puzzle was so hard! Thanks for the opportunity. :D"*
+
+    **- Zee Arrr**
+    </blockquote>
+  </div>
+  <div style={{minWidth: '300px', maxWidth: '300px', marginRight: '64px'}}>
+    <blockquote style={{minWidth: '300px', maxWidth: '300px'}}>
+    *"Very well done and an interesting ARG. The 6th puzzle was so hard! Thanks for the opportunity. :D"*
+
+    **- Zee Arrr**
+    </blockquote>
+  </div>
+  <div style={{minWidth: '300px', maxWidth: '300px', marginRight: '64px'}}>
+    <blockquote style={{minWidth: '300px', maxWidth: '300px'}}>
+    *"Very well done and an interesting ARG. The 6th puzzle was so hard! Thanks for the opportunity. :D"*
+
+    **- Zee Arrr**
+    </blockquote>
+  </div>
+  <div style={{minWidth: '300px', maxWidth: '300px', marginRight: '64px'}}>
+    <blockquote style={{minWidth: '300px', maxWidth: '300px'}}>
+    *"Very well done and an interesting ARG. The 6th puzzle was so hard! Thanks for the opportunity. :D"*
+
+    **- Zee Arrr**
+    </blockquote>
+  </div>
+</div>
+---
+<br/>
+<br/>
+
+<h2 id="puzzle-solutions"></h2>
+
+## <Twemoji emoji="📖"/> Puzzle Solutions
+
+Below I have explained the solutions of each puzzle in consecutive order.
+If you still wish to visit the website you can do so with the following link:
+https://lxxiii-old.vercel.app.
+
+<br/>
+
+<Note type="warning">The website is **static**. The views will still be updated in the database but no solvers will be added.</Note>
+
+<br/>
+
+As always, if you have any questions you can always [contact me here](https://manuanish.vercel.app)
+
+<br/>
+<br/>
+
+<h3 id="puzzle-1-1"></h3>
+
+### Puzzle #1.1
+The first puzzle begins with the follow clue:
+
+<div className="flex justify-center">
+<code>?v=azo5Gjj9qMw</code>
+</div>
+
+<br/>
+<br/>
+
+<Collapse title={<h4>Solution</h4>}>
+Although not immediately obvious, we observe that this is the `videoID` of a YouTube video.
+Take for example the link of the following youtube video:
+
+<div className="flex justify-center">
+<code>https://www.youtube.com/watch?v=dQw4w9WgXcQ</code>
+</div>
+
+the portion requesting `?v=dQw4w9WgXcQ` is the video ID.
+
+</Collapse>
