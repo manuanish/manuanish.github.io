@@ -32,6 +32,7 @@ export default function ELADemo() {
           <Slider min={0} max={100} step={1} value={value} onChange={handleSlider}/>
         </div>
       </div>
+      <br/>
     </div>
   );
 }
