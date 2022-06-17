@@ -24,6 +24,7 @@ import Twemoji from "@components/Twemoji";
 [Puzzle Solutions](#puzzle-solutions) <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;[Puzzle #1.1](#puzzle-1-1) <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;[Puzzle #1.2](#puzzle-1-2) <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;[Puzzle #1.3](#puzzle-1-3) <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;[Puzzle #2](#puzzle-2) <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;[Puzzle #3](#puzzle-3) <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;[Puzzle #4](#puzzle-4) <br/>
@@ -159,6 +160,69 @@ Take for example the link of the following youtube video:
 <code>https://www.youtube.com/watch?v=dQw4w9WgXcQ</code>
 </div>
 
-the portion requesting `?v=dQw4w9WgXcQ` is the video ID.
+the portion requesting `?v=dQw4w9WgXcQ` is the video ID. Therefore, in our case the video link
+will be given as follows:
+
+<div className="flex justify-center">
+<code>https://www.youtube.com/watch?v=azo5Gjj9qMw</code>
+</div>
+
+</Collapse>
+
+<br/>
+<br/>
+
+<h3 id="puzzle-1-2"></h3>
+
+### Puzzle #1.2
+Following with the prior, we are led to this video:
+
+<br/>
+
+<div className="flex justify-center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/azo5Gjj9qMw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style={{borderRadius: "20px"}}></iframe>
+</div>
+
+<br/>
+
+<br/>
+<br/>
+
+<Collapse title={<h4>Solution</h4>}>
+From here we can extract quite a few clues.
+<br/>
+##### Video Title
+The title of the video is encrypted in [binary](), once decoded leaves us with the following message:
+```md
+<!--Binary Cipher-->
+01010011 01101000 01100001 01101011 01100101 01110011 01110000 01100101 01100001 01110010 01100101
+
+<!--Decrypted Plain Text-->
+Shakespeare
+```
+<br/>
+##### Video Description
+The description of the video contains yet another encoded message in [hexadecimal](), once decoded leaves us with the following message
+```md
+<!--Hexadecimal Cipher-->
+68 74 74 70 73 3A 2F 2F 77 77 77 2E 79 6F 75 74 75 62 65 2E 63 6F 6D 2F 63 68 61 6E 6E 65 6C 2F 55 43 42 51 54 63 43 68 41 31 74 6D 62 4C 53 5A 5F 7A 53 6B 36 39 53 67 2F 61 62 6F 75 74
+
+
+<!--Decrypted Plain Text-->
+https://www.youtube.com/channel/UCBQTcChA1tmbLSZ_zSk69Sg/about
+```
+<br/>
+##### Channel About Page
+The last cipher leads us to the about page of the channel which has the following encrypted description in binary:
+```md
+<!--Binary Cipher-->
+01101000 01110100 01110100 01110000 01110011 00111010 00101111 00101111 01101100 01111000 01111000 01101001 01101001 01101001 00101110 01110110 01100101 01110010 01100011 01100101 01101100 00101110 01100001 01110000 01110000 00101111 01001010 01010101 01100100 01001110 01010010 00110001 01000011 01100010 01111001 01001110 00111001 01101111 01101100 01010111 01101100 01001011 01110110 01100101 00111000 01011000 00101111 01000110 01111010 01001000 01100011 01101101 00110000 01101011 00110001 01001001 01111001 01100011 01101101 01101111 01001110 01011010 01111010 01111000 01100100 01101110 01101011
+
+<!--Decrypted Plain Text-->
+https://lxxiii.vercel.app/JUdNR1CbyN9olWlKve8X/FzHcm0k1IycmoNZzxdnk
+```
+<br/>
+<Note type="secondary">If you are following along, you should use the following link https://lxxiii-old.vercel.app/JUdNR1CbyN9olWlKve8X/FzHcm0k1IycmoNZzxdnk</Note>
+
 
 </Collapse>
