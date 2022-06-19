@@ -36,6 +36,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import Confetti from "react-confetti";
+import Tags from "@components/Tags";
 
 export default function Home() {
   const router = useRouter();
@@ -523,7 +524,7 @@ export default function Home() {
                   block
                   icon
                   target="_blank"
-                  href="https://lxxiii.vercel.app"
+                  href="https://lxxiii-old.vercel.app"
                 >
                   Check it out!
                 </Link>
@@ -634,14 +635,27 @@ export default function Home() {
           className="mt-5"
         >
           <Card width="100%">
-            <Text h4 my={0}>
-              Beach/Summer Graph Contest - 7/6/22
+            <Text h4 my={0} className="flex">
+              <AiFillPushpin
+                size={26}
+                style={{ color: palette.successLight }}
+              />
+              &nbsp;LXXIII. Uncovered.
             </Text>
             <Text>
-              A short explaination on how I created a high quality graph.
+              Solutions to the puzzle{" "}
+              <Link
+                href="https://lxxiii-old.vercel.app"
+                target="_blank"
+                underline
+                color
+              >
+                LXXIII
+              </Link>
+              .
             </Text>
             <Card.Footer>
-              <Link block icon target="_blank" href="/blog/beach-graph-contest">
+              <Link block icon target="_blank" href="/blog/lxxiii-uncovered">
                 Read more!
               </Link>
             </Card.Footer>
@@ -661,7 +675,7 @@ export default function Home() {
             <Text>
               Closing the puzzle{" "}
               <Link
-                href="https://lxxiii.vercel.app"
+                href="https://lxxiii-old.vercel.app"
                 target="_blank"
                 underline
                 color
@@ -686,22 +700,13 @@ export default function Home() {
         >
           <Card width="100%">
             <Text h4 my={0}>
-              LXXIII. Uncovered. - 20/6/22
+              Beach/Summer Graph Contest - 7/6/22
             </Text>
             <Text>
-              Solutions to the puzzle{" "}
-              <Link
-                href="https://lxxiii.vercel.app"
-                target="_blank"
-                underline
-                color
-              >
-                LXXIII
-              </Link>{" "}
-              that I created.
+              A short explaination on how I created a high quality graph.
             </Text>
             <Card.Footer>
-              <Link block icon target="_blank" href="/blog/lxxiii-uncovered">
+              <Link block icon target="_blank" href="/blog/beach-graph-contest">
                 Read more!
               </Link>
             </Card.Footer>

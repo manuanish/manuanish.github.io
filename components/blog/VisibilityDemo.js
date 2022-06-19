@@ -16,16 +16,18 @@ export default function VisibilityDemo() {
 
   return (
     <div>
-      <br/>
+      <br />
       <div className="flex justify-center">
-        <div style={{ position: "relative", top: 0, left: 0, borderRadius: 10 }}>
+        <div
+          style={{ position: "relative", top: 0, left: 0, borderRadius: 10 }}
+        >
           <div
             style={{
               position: "relative",
               top: 0,
               left: 0,
               opacity: normalOpacity,
-              borderRadius: 10
+              borderRadius: 10,
             }}
           >
             <Image
@@ -44,7 +46,7 @@ export default function VisibilityDemo() {
               top: 0,
               left: 0,
               opacity: elaOpacity,
-              borderRadius: 10
+              borderRadius: 10,
             }}
           >
             <Image
