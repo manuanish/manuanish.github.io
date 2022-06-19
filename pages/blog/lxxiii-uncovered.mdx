@@ -7,12 +7,16 @@ import { User, Note, Collapse } from "@geist-ui/core";
 import Twemoji from "@components/Twemoji";
 import ELADemo from "@components/blog/ELADemo";
 import VisibilityDemo from "@components/blog/VisibilityDemo";
+import Tags from "@components/Tags";
+
 
 <Header dir={["blog", "lxxiii-uncovered"]} />
 <br />
 <br />
 <br />
 <PageTitle title="manuanish | LXXIII. Uncovered." />
+<Tags tags={["Puzzle", "Well-written"]} />
+<br/>
 <BlogTitle>LXXIII. Uncovered.</BlogTitle>
 <Author userName="manuanish" readTime={15} date="20/6/22" />
 <br />
@@ -64,32 +68,32 @@ and I hope you enjoyed solving the puzzle as much as I did creating it.
 <br/>
 
 <div className="flex flex-wrap gap-5 p-5">
-<User src="" name="Connor Stewart" />
-<User src="" name="Ethan L." />
-<User src="" name="Zachary Deng" />
-<User src="" name="Phineas Collins" />
-<User src="" name="Henry Langmack" />
-<User src="" name="Meghna Myneni" />
+<User src="/blog/solvers/connor_stewart.png" name="Connor Stewart"><User.Link href="https://www.twitch.tv/cardboard_box_person">@cardboard_box_person</User.Link></User>
+<User src="/blog/solvers/ethan_lee.png" name="Ethan L." />
+<User src="/blog/solvers/zachary_deng.jpg" name="Zachary Deng" />
+<User src="/blog/solvers/phineas_collins.jpg" name="Phineas Collins" />
+<User src="/blog/solvers/henry_lang.png" name="Henry Langmack"><User.Link href="https://github.com/henry-lang">@henry-lang</User.Link></User>
+<User src="/blog/solvers/meghna_myneni.jpg" name="Meghna Myneni" />
 <User src="/blog/solvers/sanjana_ manghnani.png" name="Sanjana Manghnani"><User.Link href="https://www.instagram.com/s.manghn/">@s.manghn</User.Link></User>
-<User src="" name="Theodore Kopaliani" />
-<User src="" name="Jieruei Chang" />
-<User src="" name="Andy Yin" />
-<User src="" name="Kevin Mo" />
-<User src="" name="Marco Hu" />
-<User src="" name="Nathan Myers" />
-<User src="" name="Shrey Khetan" />
-<User src="" name="Ron Aung" />
+<User src="/blog/solvers/theodore_kopaliani.jpg" name="Theodore Kopaliani" />
+<User src="/blog/solvers/knosmos.png" name="Jieruei Chang"><User.Link href="https://github.com/knosmos">@knosmos</User.Link></User>
+<User src="" name="Andy Yin" text="AY"/>
+<User src="" name="Kevin Mo" text="KM"/>
+<User src="" name="Marco Hu" text="MH"/>
+<User src="" name="Nathan Myers" text="NM"/>
+<User src="" name="Shrey Khetan" text="SK"/>
+<User src="" name="Ron Aung" text="RA"/>
 <User src="/blog/solvers/zee_arr.jpg" name="zee arrr"><User.Link href="https://www.instagram.com/zee_arrr/"> @zee_arrr</User.Link></User>
-<User src="" name="Aman Kapur" />
-<User src="" name="Massimo Mazucci" />
-<User src="" name="Christopher Consoli" />
-<User src="" name="Ross Farhi" />
+<User src="" name="Aman Kapur" text="AK"/>
+<User src="" name="Massimo Mazucci" text="MM"/>
+<User src="" name="Christopher Consoli" text="CC"/>
+<User src="" name="Ross Farhi" text="RF"/>
 </div>
 <br/>
 
 <h4 id="testimonials"></h4>
 #### Testimonials
-<div className="flex flex-row overflow-scroll items-stretch">
+<div className="flex flex-row overflow-scroll items-stretch justify-center">
   <div style={{minWidth: '300px', maxWidth: '300px', marginRight: '64px'}}>
     <blockquote style={{minWidth: '300px', maxWidth: '300px'}}>
     *"Very well done and an interesting ARG. The 6th puzzle was so hard! Thanks for the opportunity. :D"*
@@ -103,20 +107,6 @@ and I hope you enjoyed solving the puzzle as much as I did creating it.
 LXXIII is a really cool puzzle!! :D"*
 
     **- Sanjana**
-    </blockquote>
-  </div>
-  <div style={{minWidth: '300px', maxWidth: '300px', marginRight: '64px'}} className="h-full">
-    <blockquote style={{minWidth: '300px', maxWidth: '300px'}}>
-    *"Very well done and an interesting ARG. The 6th puzzle was so hard! Thanks for the opportunity. :D"*
-
-    **- Zee Arrr**
-    </blockquote>
-  </div>
-  <div style={{minWidth: '300px', maxWidth: '300px', marginRight: '64px'}}>
-    <blockquote style={{minWidth: '300px', maxWidth: '300px'}}>
-    *"Very well done and an interesting ARG. The 6th puzzle was so hard! Thanks for the opportunity. :D"*
-
-    **- Zee Arrr**
     </blockquote>
   </div>
 </div>
