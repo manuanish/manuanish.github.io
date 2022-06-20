@@ -108,7 +108,7 @@ export default function Blog() {
               </Text>
               <div className="flex flex-row flex-wrap gap-2">
                 {allTags.map((tag) => (
-                  <Tag type="success" invert>
+                  <Tag type="success" invert key={tag}>
                     {tag}
                   </Tag>
                 ))}
