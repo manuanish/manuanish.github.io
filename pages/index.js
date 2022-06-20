@@ -60,7 +60,6 @@ export default function Home() {
     } else {
       setTheme("light");
     }
-    console.log(theme)
   })
   const handleConstructionClick = () => {
     setConstruction1("hidden");
@@ -727,13 +726,19 @@ export default function Home() {
               </Card.Footer>
             </Card>
           </motion.div>
-          <div className="flex justify-center w-full h-full">
-            <div className={`w-full p-20 absolute bottom-0 bg-gradient-to-b from-transparent to-${theme == "light" ? "white" : "black"}`}>
+          {theme == "light" ? <div className="flex justify-center w-full h-full">
+            <div className={`w-full p-20 absolute bottom-0 bg-gradient-to-b from-transparent to-white`}>
               <div className="flex justify-center">
                 <Link href="/blog/" target="_blank"><Button type="success" ghost>View all</Button></Link>
               </div>
             </div>
-          </div>
+          </div> : <div className="flex justify-center w-full h-full">
+            <div className={`w-full p-20 absolute bottom-0 bg-gradient-to-b from-transparent to-black`}>
+              <div className="flex justify-center">
+                <Link href="/blog/" target="_blank"><Button type="success" ghost>View all</Button></Link>
+              </div>
+            </div>
+          </div>}
         </div>
         <motion.div
           initial={{ opacity: 0, y: -5 }}
