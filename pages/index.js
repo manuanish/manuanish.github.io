@@ -17,6 +17,7 @@ import {
   Collapse,
   Toggle,
   Badge,
+  Button,
   useToasts,
 } from "@geist-ui/core";
 import {
@@ -36,17 +37,30 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import Confetti from "react-confetti";
+import Tags from "@components/Tags";
 
 export default function Home() {
   const router = useRouter();
   const { setToast } = useToasts();
   const { palette } = useTheme();
+  const [theme, setTheme] = React.useState("dark");
   const [construction1, setConstruction1] = React.useState("group visible");
   const [construction2, setConstruction2] = React.useState("group hidden");
   const [runConfetti, setRunConfetti] = React.useState(false);
   const [hasRun, setHasRun] = React.useState(false);
   const [timesHovered, setTimesHovered] = React.useState(1);
 
+
+  React.useEffect(() => {
+    if (
+      localStorage.getItem("theme") == undefined ||
+      localStorage.getItem("theme") == "dark"
+    ) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  })
   const handleConstructionClick = () => {
     setConstruction1("hidden");
     setConstruction2("visible");
@@ -523,7 +537,7 @@ export default function Home() {
                   block
                   icon
                   target="_blank"
-                  href="https://lxxiii.vercel.app"
+                  href="https://lxxiii-old.vercel.app"
                 >
                   Check it out!
                 </Link>
@@ -626,57 +640,106 @@ export default function Home() {
             conversational style.
           </Text>
         </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: -5 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mt-5"
-        >
-          <Card width="100%">
-            <Text h4 my={0}>
-              Beach/Summer Graph Contest - 7/6/22
-            </Text>
-            <Text>
-              A short explaination on how I created a high quality graph.
-            </Text>
-            <Card.Footer>
-              <Link block icon target="_blank" href="/blog/beach-graph-contest">
-                Read more!
-              </Link>
-            </Card.Footer>
-          </Card>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: -5 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mt-5"
-        >
-          <Card width="100%">
-            <Text h4 my={0}>
-              LXXIII. The end? - 11/6/22
-            </Text>
-            <Text>
-              Closing the puzzle{" "}
-              <Link
-                href="https://lxxiii.vercel.app"
-                target="_blank"
-                underline
-                color
-              >
-                LXXIII
-              </Link>{" "}
-              that I created.
-            </Text>
-            <Card.Footer>
-              <Link block icon target="_blank" href="/blog/lxxiii-the-end">
-                Read more!
-              </Link>
-            </Card.Footer>
-          </Card>
-        </motion.div>
+        <div className="relative">
+          <motion.div
+            initial={{ opacity: 0, y: -5 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mt-5"
+          >
+            <Card width="100%">
+              <Text h4 my={0} className="flex">
+                <AiFillPushpin
+                  size={26}
+                  style={{ color: palette.successLight }}
+                />
+                &nbsp;LXXIII. Uncovered. - 20/6/22
+              </Text>
+              <Text>
+                Solutions to the puzzle{" "}
+                <Link
+                  href="https://lxxiii-old.vercel.app"
+                  target="_blank"
+                  underline
+                  color
+                >
+                  LXXIII
+                </Link>
+                .
+              </Text>
+              <Card.Footer>
+                <Link block icon target="_blank" href="/blog/lxxiii-uncovered">
+                  Read more!
+                </Link>
+              </Card.Footer>
+            </Card>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: -5 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mt-5"
+          >
+            <Card width="100%">
+              <Text h4 my={0}>
+                LXXIII. The end? - 11/6/22
+              </Text>
+              <Text>
+                Closing the puzzle{" "}
+                <Link
+                  href="https://lxxiii-old.vercel.app"
+                  target="_blank"
+                  underline
+                  color
+                >
+                  LXXIII
+                </Link>{" "}
+                that I created.
+              </Text>
+              <Card.Footer>
+                <Link block icon target="_blank" href="/blog/lxxiii-the-end">
+                  Read more!
+                </Link>
+              </Card.Footer>
+            </Card>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: -5 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mt-5"
+          >
+            <Card width="100%">
+              <Text h4 my={0}>
+                Beach/Summer Graph Contest - 7/6/22
+              </Text>
+              <Text>
+                A short explaination on how I created a high quality graph.
+              </Text>
+              <Card.Footer>
+                <Link block icon target="_blank" href="/blog/beach-graph-contest">
+                  Read more!
+                </Link>
+              </Card.Footer>
+            </Card>
+          </motion.div>
+          {theme == "light" ? <div className="flex justify-center w-full h-full">
+            <div className={`w-full p-20 absolute bottom-0 bg-gradient-to-b from-transparent to-white`}>
+              <div className="flex justify-center">
+                <Link href="/blog/" target="_blank"><Button type="success" ghost>View all</Button></Link>
+              </div>
+            </div>
+          </div> : <div className="flex justify-center w-full h-full">
+            <div className={`w-full p-20 absolute bottom-0 bg-gradient-to-b from-transparent to-black`}>
+              <div className="flex justify-center">
+                <Link href="/blog/" target="_blank"><Button type="success" ghost>View all</Button></Link>
+              </div>
+            </div>
+          </div>}
+        </div>
         <motion.div
           initial={{ opacity: 0, y: -5 }}
           whileInView={{ opacity: 1, y: 0 }}

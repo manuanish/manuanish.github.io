@@ -5,6 +5,7 @@
 html {
   font-family: "Inter", "system-ui";
   background-color: black;
+  scroll-behavior: smooth;
 }
 
 @supports (font-variation-settings: normal) {
