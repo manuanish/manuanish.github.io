@@ -50,7 +50,6 @@ export default function Home() {
   const [hasRun, setHasRun] = React.useState(false);
   const [timesHovered, setTimesHovered] = React.useState(1);
 
-
   React.useEffect(() => {
     if (
       localStorage.getItem("theme") == undefined ||
@@ -60,7 +59,7 @@ export default function Home() {
     } else {
       setTheme("light");
     }
-  })
+  });
   const handleConstructionClick = () => {
     setConstruction1("hidden");
     setConstruction2("visible");
@@ -720,25 +719,46 @@ export default function Home() {
                 A short explaination on how I created a high quality graph.
               </Text>
               <Card.Footer>
-                <Link block icon target="_blank" href="/blog/beach-graph-contest">
+                <Link
+                  block
+                  icon
+                  target="_blank"
+                  href="/blog/beach-graph-contest"
+                >
                   Read more!
                 </Link>
               </Card.Footer>
             </Card>
           </motion.div>
-          {theme == "light" ? <div className="flex justify-center w-full h-full">
-            <div className={`w-full p-20 absolute bottom-0 bg-gradient-to-b from-transparent to-white`}>
-              <div className="flex justify-center">
-                <Link href="/blog/" target="_blank"><Button type="success" ghost>View all</Button></Link>
+          {theme == "light" ? (
+            <div className="flex justify-center w-full h-full">
+              <div
+                className={`w-full p-20 absolute bottom-0 bg-gradient-to-b from-transparent to-white`}
+              >
+                <div className="flex justify-center">
+                  <Link href="/blog/" target="_blank">
+                    <Button type="success" ghost>
+                      View all
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </div>
-          </div> : <div className="flex justify-center w-full h-full">
-            <div className={`w-full p-20 absolute bottom-0 bg-gradient-to-b from-transparent to-black`}>
-              <div className="flex justify-center">
-                <Link href="/blog/" target="_blank"><Button type="success" ghost>View all</Button></Link>
+          ) : (
+            <div className="flex justify-center w-full h-full">
+              <div
+                className={`w-full p-20 absolute bottom-0 bg-gradient-to-b from-transparent to-black`}
+              >
+                <div className="flex justify-center">
+                  <Link href="/blog/" target="_blank">
+                    <Button type="success" ghost>
+                      View all
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>}
+          )}
         </div>
         <motion.div
           initial={{ opacity: 0, y: -5 }}

@@ -12,6 +12,7 @@ import {
   Badge,
   Text,
   Avatar,
+  Spacer,
 } from "@geist-ui/core";
 import { createClient } from "@supabase/supabase-js";
 export const supabase = createClient(
@@ -300,12 +301,17 @@ export default function Header(props) {
           />
           <br />
           {commitData.commit ? (
-            <div className="flex">
+            <div className="flex items-center">
               <div className="grow">
-                <Avatar src="https://github.com/manuanish.png" />
-                <Text span type="secondary" font="14px">
-                  &nbsp;{commitData.commit.commit.message}
-                </Text>
+                <div className="flex items-center">
+                  <Avatar src="https://github.com/manuanish.png" />
+                  &nbsp;
+                  <div className="truncate flex max-w-[150px] whitespace-nowrap">
+                    <Text span type="secondary" font="12px">
+                      &nbsp;{commitData.commit.commit.message}
+                    </Text>
+                  </div>
+                </div>
               </div>
               <div>
                 <GitBranchIcon />{" "}
