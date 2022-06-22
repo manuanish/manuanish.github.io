@@ -15,7 +15,7 @@ export default function Blog() {
     "Solution",
     "Submission",
     "Update",
-    "Interactive"
+    "Interactive",
   ]);
 
   return (

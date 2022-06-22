@@ -731,7 +731,13 @@ export default function Home() {
             </Card>
           </motion.div>
           {theme == "light" ? (
-            <div className="flex justify-center w-full h-full">
+            <motion.div
+              className="flex justify-center w-full h-full"
+              initial={{ opacity: 0, y: -5 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
               <div
                 className={`w-full p-20 absolute bottom-0 bg-gradient-to-b from-transparent to-white`}
               >
@@ -743,9 +749,15 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ) : (
-            <div className="flex justify-center w-full h-full">
+            <motion.div
+              className="flex justify-center w-full h-full"
+              initial={{ opacity: 0, y: -5 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
               <div
                 className={`w-full p-20 absolute bottom-0 bg-gradient-to-b from-transparent to-black`}
               >
@@ -757,7 +769,7 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </motion.div>
           )}
         </div>
         <motion.div
