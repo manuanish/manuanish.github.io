@@ -7,14 +7,11 @@ tag1: 'Princeton'
 tag2: 'Math'
 tag3: 'Submission'
 tag4: 'Well-written'
-tag5: 'none'
-tag6: 'none'
-tag7: 'none'
 userName: 'manuanish'
 readTime: '5'
 date: '7/6/22'
+id: '0'
 ---
-
 In this post I will be explaining how I created my graph for the [Beach/Summer
 Graph Contest](https://princetonk12.instructure.com/courses/6508/discussion_topics/213397).
 <br />
@@ -127,3 +124,18 @@ Because the high quality image can be quite hard to believe here are some of the
 <BlogImage src="/blog/output1.png" width={500} height={500} caption="Now its starting to come together!"/>
 <br/>
 <br/>
+#### Why I couldn't use Desmos
+[Desmos](https://www.desmos.com/) limits the number of graphs the you can use to about $1,000$ per page. For the beach image which was `300 x 300` pixels I would need
+at least $90,000$ individual graphs to produce the high quality image that you are viewing.
+<br/>
+<br/>
+#### Technical equations used for graphing
+Given a polar function $f(r)$ we define the function graphed at some $(x, y)$ to be given as $f_{(x, y)}(r)$. Define the width of the image to be $w = \{1, 2, 3, \cdots, 300\}$
+and similarly the height $h = \{1, 2, 3, \cdots, 300\}$. Then, the graph can be given as the following.
+$$
+\forall \ i \in w, \forall \ j \in h \implies f_{(i, j - 1/2)}(r) \leq \sin(\theta)
+$$
+
+#### Github Repo
+
+For those who are interested in look at the source code for this little project, it can be found here: https://github.com/manuanish/beach-graph
