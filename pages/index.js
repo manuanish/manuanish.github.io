@@ -457,7 +457,7 @@ export default function Home() {
             </motion.div>
           </div>
         </div>
-        <GeistProvider themeType="light">
+        <GeistProvider>
           <div className="flex justify-center">
             <motion.div
               className="mt-20 w-[600px]"
