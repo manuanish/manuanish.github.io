@@ -666,6 +666,7 @@ export default function Home({ postData, postSlugs }) {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
               className="mt-5"
+              key={slug}
             >
               <BlogPost
                 key={slug}
