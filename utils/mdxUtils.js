@@ -8,7 +8,6 @@ export const POSTS_PATH = path.join(process.cwd(), 'posts')
 export const postFilePaths = fs
   .readdirSync(POSTS_PATH)
   // Only include md(x) files
-<<<<<<< HEAD
   .filter((path) => /\.mdx?$/.test(path));
 
   console.log(postFilePaths)
@@ -17,6 +16,3 @@ export function getPostData(){
   const postFilePaths = fs.readdirSync(POSTS_PATH).filter((path) => /\.mdx?$/.test(path));
   return postFilePaths
 }
-=======
-  .filter((path) => /\.mdx?$/.test(path))
->>>>>>> parent of b5776e9 (Working)

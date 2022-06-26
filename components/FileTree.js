@@ -1,10 +1,5 @@
 import { Tree } from "@geist-ui/core";
 import { useRouter } from "next/router";
-<<<<<<< HEAD
-import * as React from "react";
-import {getPostData} from "../utils/mdxUtils";
-=======
->>>>>>> parent of b5776e9 (Working)
 
 export default function FileTree(props) {
   const router = useRouter();
