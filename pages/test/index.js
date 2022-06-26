@@ -1,10 +1,13 @@
-import {getPostData} from "../utils/mdxUtils";
+import {getPostData} from "../../utils/mdxUtils";
 
-export default function Example({res}) {
+export default function Test({res}){
   return(
-    <div>This is an example component!</div>
+    <div>
+      ok <br/> {res}
+    </div>
   );
 }
+
 
 export async function getStaticProps() {
   const res = await getPostData()
