@@ -273,7 +273,6 @@ export default function Header(props) {
       localStorage.setItem("theme", "light");
       router.push(router.asPath);
     }
-    console.log(router)
   };
 
   const changeState = () => {

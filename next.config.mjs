@@ -18,4 +18,8 @@ export default config({
   images: {
     domains: ["github.com", "i.imgur.com"],
   },
+  experimental: {
+    runtime: 'nodejs',
+    serverComponents: true,
+  },
 });

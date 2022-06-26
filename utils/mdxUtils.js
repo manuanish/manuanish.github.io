@@ -9,3 +9,10 @@ export const postFilePaths = fs
   .readdirSync(POSTS_PATH)
   // Only include md(x) files
   .filter((path) => /\.mdx?$/.test(path));
+
+  console.log(postFilePaths)
+
+export function getPostData(){
+  const postFilePaths = fs.readdirSync(POSTS_PATH).filter((path) => /\.mdx?$/.test(path));
+  return postFilePaths
+}

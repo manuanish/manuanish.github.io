@@ -1,10 +1,13 @@
 import { Tree } from "@geist-ui/core";
 import { useRouter } from "next/router";
-
+import * as React from "react";
+import {getPostData} from "../utils/mdxUtils";
 
 export default function FileTree(props) {
   const router = useRouter();
-
+  React.useEffect(() => {
+    console.log(getPostData())
+  })
   return (
     <Tree>
       <Tree.Folder name="pages">
@@ -52,9 +55,4 @@ export default function FileTree(props) {
       </Tree.Folder>
     </Tree>
   );
-}
-
-
-export async function getStaticPaths() {
-
 }
