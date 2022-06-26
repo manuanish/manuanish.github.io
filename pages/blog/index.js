@@ -5,31 +5,31 @@ import { Text, Input, Tag, Card, Link } from "@geist-ui/core";
 import { SearchIcon } from "@primer/octicons-react";
 import Twemoji from "@components/Twemoji";
 import * as React from "react";
-import {getPostSlugs, getAllPostData, getAllTags} from "@lib/parseMDX"
-import {useRouter} from "next/router";
+import { getPostSlugs, getAllPostData, getAllTags } from "@lib/parseMDX";
+import { useRouter } from "next/router";
 
 import BlogPost from "@components/BlogPost";
 
-export default function Blog({postData, postSlugs, tagsList}) {
+export default function Blog({ postData, postSlugs, tagsList }) {
   const router = useRouter();
 
   var dataList = [];
   for (var j = 0; j < postSlugs.length; j++)
-      dataList.push({'slug': postSlugs[j], 'data': postData[j]});
+    dataList.push({ slug: postSlugs[j], data: postData[j] });
 
-  dataList.sort(function(a, b){
-    var aa = a.data.date.split('/').join(),
-        bb = b.data.date.split('/').join();
-    return aa < bb ? -1 : (aa > bb ? 1 : 0);
+  dataList.sort(function (a, b) {
+    var aa = a.data.date.split("/").join(),
+      bb = b.data.date.split("/").join();
+    return aa < bb ? -1 : aa > bb ? 1 : 0;
   });
 
   for (var k = 0; k < postSlugs.length; k++) {
-      postSlugs[k] = dataList[k].slug;
-      postData[k] = dataList[k].data;
+    postSlugs[k] = dataList[k].slug;
+    postData[k] = dataList[k].data;
   }
 
-  postData = postData.reverse()
-  postSlugs = postSlugs.reverse()
+  postData = postData.reverse();
+  postSlugs = postSlugs.reverse();
 
   return (
     <div>
@@ -40,7 +40,7 @@ export default function Blog({postData, postSlugs, tagsList}) {
           <Text type="secondary">Check back here for updates!</Text>
           <hr />
           <div className="flex flex-col w-full gap-5">
-            <br/>
+            <br />
             {postSlugs.map((slug) => (
               <BlogPost
                 key={slug}
@@ -90,17 +90,16 @@ export default function Blog({postData, postSlugs, tagsList}) {
   );
 }
 
-
 export async function getStaticProps(context) {
-  const postData = await getAllPostData()
-  const postSlugs = await getPostSlugs()
-  const tagsList = await getAllTags()
+  const postData = await getAllPostData();
+  const postSlugs = await getPostSlugs();
+  const tagsList = await getAllTags();
 
   return {
     props: {
       postData,
       postSlugs,
-      tagsList: tagsList
+      tagsList: tagsList,
     },
-  }
+  };
 }

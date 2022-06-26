@@ -8,7 +8,6 @@ export default function ELADemo() {
   const [value, setValue] = React.useState(0);
 
   const handleSlider = (value) => {
-    console.log(value);
     setValue(value);
     setElaOpaicty(value / 100);
     setNormalOpaicty((100 - value) / 100);

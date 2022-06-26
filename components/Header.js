@@ -253,17 +253,17 @@ export default function Header(props) {
 
     fetchCommitData();
 
-    router.events.on('routeChangeStart', handleRouteChange)
-    router.events.on('routeChangeComplete', handleRouteComplete)
+    router.events.on("routeChangeStart", handleRouteChange);
+    router.events.on("routeChangeComplete", handleRouteComplete);
   });
 
   const handleRouteChange = () => {
-    setIsLoading(true)
-  }
+    setIsLoading(true);
+  };
 
-  const handleRouteComplete= () => {
-    setIsLoading(false)
-  }
+  const handleRouteComplete = () => {
+    setIsLoading(false);
+  };
 
   const handleClick = () => {
     if (checked == false) {
@@ -407,17 +407,17 @@ export default function Header(props) {
             content="Change the website's color palette."
           />
           <br />
-          {isLoading ?
-          <div className="flex gap-2 justify-center w-full items-start">
-            <Loading width={"100"}/>
-          </div>
-          :
-          <div className="flex gap-2 justify-center w-full items-start">
-            <SunIcon />
-            <Toggle checked={checked} onClick={handleClick} />
-            <MoonIcon />
-          </div>
-        }
+          {isLoading ? (
+            <div className="flex gap-2 justify-center w-full items-start">
+              <Loading width={"100"} />
+            </div>
+          ) : (
+            <div className="flex gap-2 justify-center w-full items-start">
+              <SunIcon />
+              <Toggle checked={checked} onClick={handleClick} />
+              <MoonIcon />
+            </div>
+          )}
           <br />
           <Divider />
           <br />

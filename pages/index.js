@@ -39,9 +39,9 @@ import {
 import Confetti from "react-confetti";
 import Tags from "@components/Tags";
 import BlogPost from "@components/BlogPost";
-import {getPostSlugs, getAllPostData} from "@lib/parseMDX"
+import { getPostSlugs, getAllPostData } from "@lib/parseMDX";
 
-export default function Home({postData, postSlugs}) {
+export default function Home({ postData, postSlugs }) {
   const router = useRouter();
   const { setToast } = useToasts();
   const { palette } = useTheme();
@@ -54,25 +54,24 @@ export default function Home({postData, postSlugs}) {
 
   var dataList = [];
   for (var j = 0; j < postSlugs.length; j++)
-      dataList.push({'slug': postSlugs[j], 'data': postData[j]});
+    dataList.push({ slug: postSlugs[j], data: postData[j] });
 
-  console.log(dataList)
-
-  dataList.sort(function(a, b){
-    var aa = a.data.date.split('/').reverse().join(),
-        bb = b.data.date.split('/').reverse().join();
-    return aa < bb ? -1 : (aa > bb ? 1 : 0);
+  dataList.sort(function (a, b) {
+    var aa = a.data.date.split("/").reverse().join(),
+      bb = b.data.date.split("/").reverse().join();
+    return aa < bb ? -1 : aa > bb ? 1 : 0;
   });
 
-  console.log(dataList.reverse())
-
   for (var k = 0; k < postSlugs.length; k++) {
-      postSlugs[k] = dataList[k].slug;
-      postData[k] = dataList[k].data;
+    postSlugs[k] = dataList[k].slug;
+    postData[k] = dataList[k].data;
   }
 
-  postSlugs = postSlugs.slice(0, 2)
-  dataList = dataList.slice(0, 2)
+  postData = postData.reverse();
+  postSlugs = postSlugs.reverse();
+
+  postSlugs = postSlugs.slice(0, 2);
+  dataList = dataList.slice(0, 2);
 
   React.useEffect(() => {
     if (
@@ -99,13 +98,10 @@ export default function Home({postData, postSlugs}) {
       });
       setHasRun(true);
     }
-
-    console.log("yeah");
   };
 
   const handleHandHover = () => {
     setTimesHovered(timesHovered + 1);
-    console.log(timesHovered);
     if (timesHovered % 4 == 0) {
       setToast({
         text: (
@@ -120,7 +116,6 @@ export default function Home({postData, postSlugs}) {
 
   const handleHandClick = () => {
     setTimesHovered(timesHovered + 1);
-    console.log(timesHovered);
     if (timesHovered % 4 == 0) {
       setToast({
         text: (
@@ -672,20 +667,20 @@ export default function Home({postData, postSlugs}) {
               transition={{ duration: 0.5 }}
               className="mt-5"
             >
-            <BlogPost
-              key={slug}
-              tag1={postData[postSlugs.indexOf(slug)].tag1}
-              tag2={postData[postSlugs.indexOf(slug)].tag2}
-              tag3={postData[postSlugs.indexOf(slug)].tag3}
-              tag4={postData[postSlugs.indexOf(slug)].tag4}
-              tag5={postData[postSlugs.indexOf(slug)].tag5}
-              tag6={postData[postSlugs.indexOf(slug)].tag6}
-              tag7={postData[postSlugs.indexOf(slug)].tag7}
-              title={postData[postSlugs.indexOf(slug)].title}
-              date={postData[postSlugs.indexOf(slug)].date}
-              description={postData[postSlugs.indexOf(slug)].description}
-              href={slug}
-            />
+              <BlogPost
+                key={slug}
+                tag1={postData[postSlugs.indexOf(slug)].tag1}
+                tag2={postData[postSlugs.indexOf(slug)].tag2}
+                tag3={postData[postSlugs.indexOf(slug)].tag3}
+                tag4={postData[postSlugs.indexOf(slug)].tag4}
+                tag5={postData[postSlugs.indexOf(slug)].tag5}
+                tag6={postData[postSlugs.indexOf(slug)].tag6}
+                tag7={postData[postSlugs.indexOf(slug)].tag7}
+                title={postData[postSlugs.indexOf(slug)].title}
+                date={postData[postSlugs.indexOf(slug)].date}
+                description={postData[postSlugs.indexOf(slug)].description}
+                href={slug}
+              />
             </motion.div>
           ))}
           {theme == "light" ? (
@@ -864,13 +859,13 @@ export default function Home({postData, postSlugs}) {
 }
 
 export async function getStaticProps(context) {
-  const postData = await getAllPostData()
-  const postSlugs = await getPostSlugs()
+  const postData = await getAllPostData();
+  const postSlugs = await getPostSlugs();
 
   return {
     props: {
       postData,
-      postSlugs
+      postSlugs,
     },
-  }
+  };
 }

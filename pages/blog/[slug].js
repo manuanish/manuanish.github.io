@@ -1,12 +1,12 @@
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
-import { join } from 'path'
+import { join } from "path";
 
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import Link from "next/link";
@@ -76,7 +76,10 @@ export default function BlogPost({ source, frontMatter }) {
 }
 
 export const getStaticProps = async ({ params }) => {
-  const postFilePath = path.join(join(process.cwd(), 'blog-posts'), `${params.slug}.mdx`);
+  const postFilePath = path.join(
+    join(process.cwd(), "blog-posts"),
+    `${params.slug}.mdx`
+  );
   const source = fs.readFileSync(postFilePath);
 
   const { content, data } = matter(source);
@@ -99,7 +102,11 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const paths = fs.readdirSync(path.join(process.cwd(), "blog-posts")).filter((path) => /\.mdx?$/.test(path)).map((path) => path.replace(/\.mdx?$/, "")).map((slug) => ({ params: { slug } }));
+  const paths = fs
+    .readdirSync(path.join(process.cwd(), "blog-posts"))
+    .filter((path) => /\.mdx?$/.test(path))
+    .map((path) => path.replace(/\.mdx?$/, ""))
+    .map((slug) => ({ params: { slug } }));
 
   return {
     paths,

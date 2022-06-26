@@ -7,7 +7,13 @@ export default function Tags(props) {
         tag == "none" || tag == undefined ? (
           <span></span>
         ) : (
-          <Tag scale={props.scale ? props.scale : 1} type="success" invert key={tag} style={{borderRadius: props.radius ? '20px' : ''}}>
+          <Tag
+            scale={props.scale ? props.scale : 1}
+            type="success"
+            invert
+            key={tag}
+            style={{ borderRadius: props.radius ? "20px" : "" }}
+          >
             {tag}
           </Tag>
         )
