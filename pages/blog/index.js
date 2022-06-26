@@ -16,6 +16,7 @@ export default function Blog() {
     "Submission",
     "Update",
     "Interactive",
+    "Video",
   ]);
 
   return (
@@ -28,6 +29,20 @@ export default function Blog() {
           <hr />
           <div className="flex flex-col w-full gap-5">
             <br />
+            <Card width="100%">
+              <Text h4 my={0} className="flex">
+                Time Crystals in 90 Seconds - 25/6/22
+              </Text>
+              <Text>
+                This post annotates my submission for the 2022 Breakthrough
+                Junior Challenge
+              </Text>
+              <Card.Footer>
+                <Link block icon target="_blank" href="/blog/breakthrough-2022">
+                  Read more!
+                </Link>
+              </Card.Footer>
+            </Card>
             <Card width="100%">
               <Text h4 my={0} className="flex">
                 LXXIII. Uncovered. - 20/6/22

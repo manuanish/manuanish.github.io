@@ -30,6 +30,13 @@ export default function FileTree(props) {
             }}
           />
           <Tree.File
+            name="breakthrough-2022.mdx"
+            onClick={() => {
+              router.push("/blog/breakthrough-2022");
+              props.func();
+            }}
+          />
+          <Tree.File
             name="index.js"
             onClick={() => {
               router.push("/blog/");

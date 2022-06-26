@@ -649,11 +649,29 @@ export default function Home() {
           >
             <Card width="100%">
               <Text h4 my={0} className="flex">
-                <AiFillPushpin
-                  size={26}
-                  style={{ color: palette.successLight }}
-                />
-                &nbsp;LXXIII. Uncovered. - 20/6/22
+                Time Crystals in 90 Seconds - 25/6/22
+              </Text>
+              <Text>
+                This post annotates my submission for the 2022 Breakthrough
+                Junior Challenge
+              </Text>
+              <Card.Footer>
+                <Link block icon target="_blank" href="/blog/breakthrough-2022">
+                  Read more!
+                </Link>
+              </Card.Footer>
+            </Card>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: -5 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mt-5"
+          >
+            <Card width="100%">
+              <Text h4 my={0} className="flex">
+                LXXIII. Uncovered. - 20/6/22
               </Text>
               <Text>
                 Solutions to the puzzle{" "}
@@ -699,32 +717,6 @@ export default function Home() {
               </Text>
               <Card.Footer>
                 <Link block icon target="_blank" href="/blog/lxxiii-the-end">
-                  Read more!
-                </Link>
-              </Card.Footer>
-            </Card>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: -5 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mt-5"
-          >
-            <Card width="100%">
-              <Text h4 my={0}>
-                Beach/Summer Graph Contest - 7/6/22
-              </Text>
-              <Text>
-                A short explaination on how I created a high quality graph.
-              </Text>
-              <Card.Footer>
-                <Link
-                  block
-                  icon
-                  target="_blank"
-                  href="/blog/beach-graph-contest"
-                >
                   Read more!
                 </Link>
               </Card.Footer>
