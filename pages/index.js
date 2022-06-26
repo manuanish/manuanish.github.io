@@ -38,8 +38,10 @@ import {
 } from "react-icons/fa";
 import Confetti from "react-confetti";
 import Tags from "@components/Tags";
+import BlogPost from "@components/BlogPost";
+import { getPostSlugs, getAllPostData } from "@lib/parseMDX";
 
-export default function Home() {
+export default function Home({ postData, postSlugs }) {
   const router = useRouter();
   const { setToast } = useToasts();
   const { palette } = useTheme();
@@ -49,6 +51,27 @@ export default function Home() {
   const [runConfetti, setRunConfetti] = React.useState(false);
   const [hasRun, setHasRun] = React.useState(false);
   const [timesHovered, setTimesHovered] = React.useState(1);
+
+  var dataList = [];
+  for (var j = 0; j < postSlugs.length; j++)
+    dataList.push({ slug: postSlugs[j], data: postData[j] });
+
+  dataList.sort(function (a, b) {
+    var aa = a.data.date.split("/").reverse().join(),
+      bb = b.data.date.split("/").reverse().join();
+    return aa < bb ? -1 : aa > bb ? 1 : 0;
+  });
+
+  for (var k = 0; k < postSlugs.length; k++) {
+    postSlugs[k] = dataList[k].slug;
+    postData[k] = dataList[k].data;
+  }
+
+  postData = postData.reverse();
+  postSlugs = postSlugs.reverse();
+
+  postSlugs = postSlugs.slice(0, 2);
+  dataList = dataList.slice(0, 2);
 
   React.useEffect(() => {
     if (
@@ -75,13 +98,10 @@ export default function Home() {
       });
       setHasRun(true);
     }
-
-    console.log("yeah");
   };
 
   const handleHandHover = () => {
     setTimesHovered(timesHovered + 1);
-    console.log(timesHovered);
     if (timesHovered % 4 == 0) {
       setToast({
         text: (
@@ -96,7 +116,6 @@ export default function Home() {
 
   const handleHandClick = () => {
     setTimesHovered(timesHovered + 1);
-    console.log(timesHovered);
     if (timesHovered % 4 == 0) {
       setToast({
         text: (
@@ -640,88 +659,31 @@ export default function Home() {
           </Text>
         </motion.div>
         <div className="relative">
-          <motion.div
-            initial={{ opacity: 0, y: -5 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mt-5"
-          >
-            <Card width="100%">
-              <Text h4 my={0} className="flex">
-                Time Crystals in 90 Seconds - 25/6/22
-              </Text>
-              <Text>
-                This post annotates my submission for the 2022 Breakthrough
-                Junior Challenge
-              </Text>
-              <Card.Footer>
-                <Link block icon target="_blank" href="/blog/breakthrough-2022">
-                  Read more!
-                </Link>
-              </Card.Footer>
-            </Card>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: -5 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mt-5"
-          >
-            <Card width="100%">
-              <Text h4 my={0} className="flex">
-                LXXIII. Uncovered. - 20/6/22
-              </Text>
-              <Text>
-                Solutions to the puzzle{" "}
-                <Link
-                  href="https://lxxiii-old.vercel.app"
-                  target="_blank"
-                  underline
-                  color
-                >
-                  LXXIII
-                </Link>
-                .
-              </Text>
-              <Card.Footer>
-                <Link block icon target="_blank" href="/blog/lxxiii-uncovered">
-                  Read more!
-                </Link>
-              </Card.Footer>
-            </Card>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: -5 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mt-5"
-          >
-            <Card width="100%">
-              <Text h4 my={0}>
-                LXXIII. The end? - 11/6/22
-              </Text>
-              <Text>
-                Closing the puzzle{" "}
-                <Link
-                  href="https://lxxiii-old.vercel.app"
-                  target="_blank"
-                  underline
-                  color
-                >
-                  LXXIII
-                </Link>{" "}
-                that I created.
-              </Text>
-              <Card.Footer>
-                <Link block icon target="_blank" href="/blog/lxxiii-the-end">
-                  Read more!
-                </Link>
-              </Card.Footer>
-            </Card>
-          </motion.div>
+          {postSlugs.map((slug) => (
+            <motion.div
+              initial={{ opacity: 0, y: -5 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mt-5"
+              key={slug}
+            >
+              <BlogPost
+                key={slug}
+                tag1={postData[postSlugs.indexOf(slug)].tag1}
+                tag2={postData[postSlugs.indexOf(slug)].tag2}
+                tag3={postData[postSlugs.indexOf(slug)].tag3}
+                tag4={postData[postSlugs.indexOf(slug)].tag4}
+                tag5={postData[postSlugs.indexOf(slug)].tag5}
+                tag6={postData[postSlugs.indexOf(slug)].tag6}
+                tag7={postData[postSlugs.indexOf(slug)].tag7}
+                title={postData[postSlugs.indexOf(slug)].title}
+                date={postData[postSlugs.indexOf(slug)].date}
+                description={postData[postSlugs.indexOf(slug)].description}
+                href={slug}
+              />
+            </motion.div>
+          ))}
           {theme == "light" ? (
             <motion.div
               className="flex justify-center w-full h-full"
@@ -895,4 +857,16 @@ export default function Home() {
       </div>
     </div>
   );
+}
+
+export async function getStaticProps(context) {
+  const postData = await getAllPostData();
+  const postSlugs = await getPostSlugs();
+
+  return {
+    props: {
+      postData,
+      postSlugs,
+    },
+  };
 }

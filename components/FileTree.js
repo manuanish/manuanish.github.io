@@ -9,34 +9,6 @@ export default function FileTree(props) {
       <Tree.Folder name="pages">
         <Tree.Folder name="blog">
           <Tree.File
-            name="beach-graph-contest.mdx"
-            onClick={() => {
-              router.push("/blog/beach-graph-contest");
-              props.func();
-            }}
-          />
-          <Tree.File
-            name="lxxiii-the-end.mdx"
-            onClick={() => {
-              router.push("/blog/lxxiii-the-end");
-              props.func();
-            }}
-          />
-          <Tree.File
-            name="lxxiii-uncovered.mdx"
-            onClick={() => {
-              router.push("/blog/lxxiii-uncovered");
-              props.func();
-            }}
-          />
-          <Tree.File
-            name="breakthrough-2022.mdx"
-            onClick={() => {
-              router.push("/blog/breakthrough-2022");
-              props.func();
-            }}
-          />
-          <Tree.File
             name="index.js"
             onClick={() => {
               router.push("/blog/");

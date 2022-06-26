@@ -13,6 +13,7 @@ import {
   Text,
   Avatar,
   Spacer,
+  Loading,
 } from "@geist-ui/core";
 import { createClient } from "@supabase/supabase-js";
 export const supabase = createClient(
@@ -47,6 +48,7 @@ export default function Header(props) {
   const [hasUpdatedImpressions, setHasUpdatedImpressions] =
     React.useState(false);
   const [commitData, setCommitData] = React.useState({});
+  const [isLoading, setIsLoading] = React.useState(false);
   const [hasFetchedCommitData, setHasFetchedCommitData] = React.useState(false);
   const router = useRouter();
 
@@ -66,86 +68,170 @@ export default function Header(props) {
     async function fetchViews() {
       var pageNames = [];
       var idList = [];
-
-      try {
-        const { data, error } = await supabase.from("page-data").select();
-        var pageData = data;
-        for (var i = 0; i < pageData.length; i++) {
-          pageNames.push(pageData[i].pageName);
-          idList.push(pageData[i].id);
-        }
-        if (pageNames.includes(router.pathname) == false) {
-          if (pageData.length == 0) {
-            const { data, error } = await supabase.from("page-data").insert([
-              {
-                id: 1,
-                pageName: router.pathname,
-                viewCount: 1,
-                impressionCount: 1,
-              },
-            ]);
-            localStorage.setItem(`has_viewed_${router.pathname}`, "true");
-          } else {
-            const { data, error } = await supabase.from("page-data").insert([
-              {
-                id: Math.max.apply(Math, idList) + 1,
-                pageName: router.pathname,
-                viewCount: 1,
-                impressionCount: 1,
-              },
-            ]);
-            localStorage.setItem(`has_viewed_${router.pathname}`, "true");
-          }
-        } else {
+      if (props.dynamic != true) {
+        try {
+          const { data, error } = await supabase.from("page-data").select();
+          var pageData = data;
           for (var i = 0; i < pageData.length; i++) {
-            if (pageData[i].pageName == router.pathname) {
-              if (hasUpdated == false) {
-                if (hasUpdatedImpressions == false) {
-                  var current = new Date();
-                  await supabase
-                    .from("page-data")
-                    .update({
-                      impressionCount: pageData[i].impressionCount + 1,
-                    })
-                    .match({ pageName: router.pathname });
-                  await supabase
-                    .from("page-data")
-                    .update({ lastViewed: current })
-                    .match({ pageName: router.pathname });
-                  setHasUpdatedImpressions(true);
-                  setImpressionCount(pageData[i].impressionCount + 1);
-                  setLastViewed(current);
-                }
-
-                if (hasUpdatedViews == false) {
-                  const hasViewed = await localStorage.getItem(
-                    `has_viewed_${router.pathname}`
-                  );
-
-                  if (hasViewed != "true") {
+            pageNames.push(pageData[i].pageName);
+            idList.push(pageData[i].id);
+          }
+          if (pageNames.includes(router.pathname) == false) {
+            if (pageData.length == 0) {
+              const { data, error } = await supabase.from("page-data").insert([
+                {
+                  id: 1,
+                  pageName: router.pathname,
+                  viewCount: 1,
+                  impressionCount: 1,
+                },
+              ]);
+              localStorage.setItem(`has_viewed_${router.pathname}`, "true");
+            } else {
+              const { data, error } = await supabase.from("page-data").insert([
+                {
+                  id: Math.max.apply(Math, idList) + 1,
+                  pageName: router.pathname,
+                  viewCount: 1,
+                  impressionCount: 1,
+                },
+              ]);
+              localStorage.setItem(`has_viewed_${router.pathname}`, "true");
+            }
+          } else {
+            for (var i = 0; i < pageData.length; i++) {
+              if (pageData[i].pageName == router.pathname) {
+                if (hasUpdated == false) {
+                  if (hasUpdatedImpressions == false) {
+                    var current = new Date();
                     await supabase
                       .from("page-data")
-                      .update({ viewCount: pageData[i].viewCount + 1 })
+                      .update({
+                        impressionCount: pageData[i].impressionCount + 1,
+                      })
                       .match({ pageName: router.pathname });
-                    localStorage.setItem(
-                      `has_viewed_${router.pathname}`,
-                      "true"
+                    await supabase
+                      .from("page-data")
+                      .update({ lastViewed: current })
+                      .match({ pageName: router.pathname });
+                    setHasUpdatedImpressions(true);
+                    setImpressionCount(pageData[i].impressionCount + 1);
+                    setLastViewed(current);
+                  }
+
+                  if (hasUpdatedViews == false) {
+                    const hasViewed = await localStorage.getItem(
+                      `has_viewed_${router.pathname}`
                     );
-                    setHasUpdatedViews(true);
-                    setViewCount(pageData[i].viewCount + 1);
-                  } else {
-                    setViewCount(pageData[i].viewCount);
+
+                    if (hasViewed != "true") {
+                      await supabase
+                        .from("page-data")
+                        .update({ viewCount: pageData[i].viewCount + 1 })
+                        .match({ pageName: router.pathname });
+                      localStorage.setItem(
+                        `has_viewed_${router.pathname}`,
+                        "true"
+                      );
+                      setHasUpdatedViews(true);
+                      setViewCount(pageData[i].viewCount + 1);
+                    } else {
+                      setViewCount(pageData[i].viewCount);
+                    }
                   }
                 }
+                setHasUpdated(true);
               }
-              setHasUpdated(true);
             }
           }
+        } catch {
+          setViewCount("-1");
+          setImpressionCount("-1");
+          setLastViewed("-1");
         }
-      } catch {
-        setViewCount("-1");
-        setImpressionCount("-1");
-        setLastViewed("-1");
+      } else if (props.dynamic == true) {
+        var DYNAMIC_URL =
+          router.pathname.substring(0, router.pathname.lastIndexOf("/")) +
+          "/" +
+          router.query.slug;
+
+        try {
+          const { data, error } = await supabase.from("page-data").select();
+          var pageData = data;
+          for (var i = 0; i < pageData.length; i++) {
+            pageNames.push(pageData[i].pageName);
+            idList.push(pageData[i].id);
+          }
+          if (pageNames.includes(DYNAMIC_URL) == false) {
+            if (pageData.length == 0) {
+              const { data, error } = await supabase.from("page-data").insert([
+                {
+                  id: 1,
+                  pageName: DYNAMIC_URL,
+                  viewCount: 1,
+                  impressionCount: 1,
+                },
+              ]);
+              localStorage.setItem(`has_viewed_${DYNAMIC_URL}`, "true");
+            } else {
+              const { data, error } = await supabase.from("page-data").insert([
+                {
+                  id: Math.max.apply(Math, idList) + 1,
+                  pageName: DYNAMIC_URL,
+                  viewCount: 1,
+                  impressionCount: 1,
+                },
+              ]);
+              localStorage.setItem(`has_viewed_${DYNAMIC_URL}`, "true");
+            }
+          } else {
+            for (var i = 0; i < pageData.length; i++) {
+              if (pageData[i].pageName == DYNAMIC_URL) {
+                if (hasUpdated == false) {
+                  if (hasUpdatedImpressions == false) {
+                    var current = new Date();
+                    await supabase
+                      .from("page-data")
+                      .update({
+                        impressionCount: pageData[i].impressionCount + 1,
+                      })
+                      .match({ pageName: DYNAMIC_URL });
+                    await supabase
+                      .from("page-data")
+                      .update({ lastViewed: current })
+                      .match({ pageName: DYNAMIC_URL });
+                    setHasUpdatedImpressions(true);
+                    setImpressionCount(pageData[i].impressionCount + 1);
+                    setLastViewed(current);
+                  }
+
+                  if (hasUpdatedViews == false) {
+                    const hasViewed = await localStorage.getItem(
+                      `has_viewed_${DYNAMIC_URL}`
+                    );
+
+                    if (hasViewed != "true") {
+                      await supabase
+                        .from("page-data")
+                        .update({ viewCount: pageData[i].viewCount + 1 })
+                        .match({ pageName: DYNAMIC_URL });
+                      localStorage.setItem(`has_viewed_${DYNAMIC_URL}`, "true");
+                      setHasUpdatedViews(true);
+                      setViewCount(pageData[i].viewCount + 1);
+                    } else {
+                      setViewCount(pageData[i].viewCount);
+                    }
+                  }
+                }
+                setHasUpdated(true);
+              }
+            }
+          }
+        } catch {
+          setViewCount("-1");
+          setImpressionCount("-1");
+          setLastViewed("-1");
+        }
       }
     }
 
@@ -166,15 +252,26 @@ export default function Header(props) {
     }
 
     fetchCommitData();
+
+    router.events.on("routeChangeStart", handleRouteChange);
+    router.events.on("routeChangeComplete", handleRouteComplete);
   });
+
+  const handleRouteChange = () => {
+    setIsLoading(true);
+  };
+
+  const handleRouteComplete = () => {
+    setIsLoading(false);
+  };
 
   const handleClick = () => {
     if (checked == false) {
       localStorage.setItem("theme", "dark");
-      router.push(router.pathname);
+      router.push(router.asPath);
     } else {
       localStorage.setItem("theme", "light");
-      router.push(router.pathname);
+      router.push(router.asPath);
     }
   };
 
@@ -264,19 +361,42 @@ export default function Header(props) {
           <br />
           <div className="flex">
             <pre className="w-full">
-              <Code width="100%">
-                &#123;
-                <br />
-                &nbsp;&nbsp;path: &quot;{router.pathname}&quot;,
-                <br />
-                &nbsp;&nbsp;views: &quot;{viewCount}&quot;,
-                <br />
-                &nbsp;&nbsp;impressions: &quot;{impressionCount}&quot;,
-                <br />
-                &nbsp;&nbsp;lastViewed: &quot;{lastViewed.toString()}&quot;
-                <br />
-                &#125;
-              </Code>
+              {props.dynamic == true ? (
+                <Code width="100%">
+                  &#123;
+                  <br />
+                  &nbsp;&nbsp;path: &quot;
+                  {router.pathname.substring(
+                    0,
+                    router.pathname.lastIndexOf("/")
+                  ) +
+                    "/" +
+                    router.query.slug}
+                  &quot;,
+                  <br />
+                  &nbsp;&nbsp;views: &quot;{viewCount}&quot;,
+                  <br />
+                  &nbsp;&nbsp;impressions: &quot;{impressionCount}&quot;,
+                  <br />
+                  &nbsp;&nbsp;lastViewed: &quot;{lastViewed.toString()}&quot;
+                  <br />
+                  &#125;
+                </Code>
+              ) : (
+                <Code width="100%">
+                  &#123;
+                  <br />
+                  &nbsp;&nbsp;path: &quot;{router.pathname}&quot;,
+                  <br />
+                  &nbsp;&nbsp;views: &quot;{viewCount}&quot;,
+                  <br />
+                  &nbsp;&nbsp;impressions: &quot;{impressionCount}&quot;,
+                  <br />
+                  &nbsp;&nbsp;lastViewed: &quot;{lastViewed.toString()}&quot;
+                  <br />
+                  &#125;
+                </Code>
+              )}
             </pre>
           </div>
           <br />
@@ -287,11 +407,17 @@ export default function Header(props) {
             content="Change the website's color palette."
           />
           <br />
-          <div className="flex gap-2 justify-center w-full">
-            <SunIcon />
-            <Toggle checked={checked} onClick={handleClick} />
-            <MoonIcon />
-          </div>
+          {isLoading ? (
+            <div className="flex gap-2 justify-center w-full items-start">
+              <Loading width={"100"} />
+            </div>
+          ) : (
+            <div className="flex gap-2 justify-center w-full items-start">
+              <SunIcon />
+              <Toggle checked={checked} onClick={handleClick} />
+              <MoonIcon />
+            </div>
+          )}
           <br />
           <Divider />
           <br />
