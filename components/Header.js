@@ -282,8 +282,8 @@ export default function Header(props) {
   return (
     <div className="flex">
       <div className="mt-8 grow">
-        <div className="">
-          <Breadcrumbs className="overflow-scroll">
+        <div className="overflow-scroll whitespace-nowrap">
+          <Breadcrumbs>
             <Breadcrumbs.Item
               href="#"
               onClick={(e) => {

@@ -19,7 +19,7 @@ export default function Author(props) {
   });
 
   return (
-    <div className="flex gap-1">
+    <div className="flex gap-1 flex-wrap">
       {userData ? (
         <User
           src={`https://github.com/${props.userName}.png`}
@@ -33,7 +33,7 @@ export default function Author(props) {
         <div></div>
       )}
       <Text type="secondary">
-        &#8212; {props.date}, {props.readTime} min read
+        {props.date}, {props.readTime} min read
       </Text>
     </div>
   );

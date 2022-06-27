@@ -1,0 +1,100 @@
+---
+title: "Dynamic URLs."
+description: "Introducing Dynamic URLs in my website."
+date: "26/6/2022"
+userName: "manuanish"
+readTime: "8"
+tag1: "Princeton"
+tag2: "Coding"
+tag3: "Website"
+tag4: "Well-written"
+---
+Logging some breaking changes in the backend of my website and finally coming
+around to adding Dynamic URLs for the blog!
+
+<br/>
+### What are Dynamic URLs?
+Defining routes by using predefined paths is not always enough for complex applications.
+Dynamic URLs are used for simplifying the development process for creating many copies
+of visually similar pages (in the case the blog posts).
+
+<div className="flex-row sm:flex md:flex lg:flex justify-center gap-2">
+<div className="grow w-full">
+<Note type="error" label="Don't">predefine every static page.</Note>
+
+```
+/blog/beach-graph-contest
+/blog/lxxiii-the-end
+/blog/lxxiii-uncovered
+```
+</div>
+<br/>
+<div className="grow w-full">
+<Note type="success" label="Do">use a single dynamic route.</Note>
+
+```
+
+/blog/[slug]
+
+
+```
+</div>
+</div>
+<br/>
+<br/>
+### Changes in the development experience
+This makes it much easier to focus on what matters most; content!
+<br/>
+<Note type="error" label="Don't">wrestle with long import statements</Note>
+<br/>
+```jsx
+import Header from "@components/Header";
+import Author from "@components/Author";
+import BlogImage from "@components/BlogImage";
+import BlogTitle from "@components/BlogTitle";
+import PageTitle from "@components/PageTitle";
+import { User, Note, Collapse } from "@geist-ui/core";
+import Twemoji from "@components/Twemoji";
+import ELADemo from "@components/blog/ELADemo";
+import VisibilityDemo from "@components/blog/VisibilityDemo";
+import Tags from "@components/Tags";
+
+
+<Header dir={["blog", "lxxiii-uncovered"]} />
+<br />
+<br />
+<br />
+<PageTitle title="manuanish | LXXIII. Uncovered." />
+<Tags tags={["Princeton", "Puzzle", "Solutions", "Interactive", "Well-written"]} />
+<br/>
+<BlogTitle>LXXIII. Uncovered.</BlogTitle>
+<Author userName="manuanish" readTime={15} date="20/6/22" />
+<br />
+---
+```
+
+<br/>
+
+<Note type="success" label="Do">use simple YAML frontmatter</Note>
+<br/>
+```md
+---
+title: "LXXIII. Uncovered."
+description: "Solutions to the puzzle LXXIII."
+date: "20/6/2022"
+userName: "manuanish"
+readTime: "15"
+tag1: "Princeton"
+tag2: "Puzzle"
+tag3: "Solutions"
+tag4: "Interactive"
+tag5: "Well-written"
+---
+```
+<br/>
+<br/>
+### Automatic Updates
+Using dynamic URLs also allows me to automatically update each page with the latest
+content without manually adding new components. For example, the `/blog/` directory
+will automatically be update with the latest post, tags and more.
+<br/>

@@ -6,6 +6,7 @@ import Header from "@components/Header";
 import * as React from "react";
 import { useRouter } from "next/router";
 import { GeistProvider, CssBaseline } from "@geist-ui/core";
+import ChangeLog from "@components/ChangeLog";
 import {
   useTheme,
   Card,
@@ -537,7 +538,7 @@ export default function Home({ postData, postSlugs }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="min-w-[300px] grow"
+            className="min-w-[300px] max-w-[300px]"
           >
             <Card width="100%">
               <Text h4 my={0} className="flex">
@@ -567,7 +568,7 @@ export default function Home({ postData, postSlugs }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="min-w-[300px] grow"
+            className="min-w-[300px] max-w-[300px]"
           >
             <Card width="100%">
               <Text h4 my={0}>
@@ -588,7 +589,7 @@ export default function Home({ postData, postSlugs }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="min-w-[300px] grow"
+            className="min-w-[300px] max-w-[300px]"
           >
             <Card width="100%">
               <Text h4 my={0}>
@@ -612,7 +613,7 @@ export default function Home({ postData, postSlugs }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="min-w-[300px] grow"
+            className="min-w-[300px] max-w-[300px]"
           >
             <Card width="100%">
               <Text h4 my={0}>
@@ -632,6 +633,7 @@ export default function Home({ postData, postSlugs }) {
             </Card>
           </motion.div>
         </div>
+
         <motion.div
           initial={{ opacity: 0, y: -5 }}
           whileInView={{ opacity: 1, y: 0 }}
