@@ -16,6 +16,6 @@ export default config({
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
   reactStrictMode: true,
   images: {
-    domains: ["github.com", "i.imgur.com"],
+    domains: ["github.com", "i.imgur.com", "avatars.dicebear.com"],
   },
 });

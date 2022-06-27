@@ -24,41 +24,21 @@ export default function ChangeLog() {
       >
         <div className="grow w-full"></div>
         <div className="grow w-full flex mr-[20px]">
-          <div className="flex items-center max-w-[300px]">
-            <Checkbox checked />
-            &nbsp;&nbsp;
-            <Text type="secondary">
-              Make<Code>/blog</Code> dynamic!
-            </Text>
+          <div className="flex items-baseline gap-2 max-w-[300px]">
+            <div className="flex-col justify-center items-stretch mt-[18px]">
+              <div>
+                <Checkbox checked />
+              </div>
+              <div className="h-fit w-[6px] bg-red-500"></div>
+            </div>
+            <div className="self-start top-0">
+              <Text type="secondary max-w-[300px]">
+                Make<Code>/blog</Code> dynamic! and some more stuff I would like
+                to add.
+              </Text>
+            </div>
           </div>
         </div>
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, y: -5 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="flex justify-center"
-      >
-        <div className="h-[40px] w-[5px] bg-[#eaeaea] rounded-full"></div>
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, y: -5 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="flex justify-center flex-reverse items-center"
-      >
-        <div className="grow w-full flex ml-[20px]">
-          <div className="">
-            <Checkbox checked />
-            &nbsp;&nbsp;
-            <Text type="secondary">
-              Make<Code>/blog</Code> dynamic!
-            </Text>
-          </div>
-        </div>
-        <div className="grow w-full"></div>
       </motion.div>
     </div>
   );

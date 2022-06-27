@@ -23,6 +23,13 @@ export default function FileTree(props) {
             props.func();
           }}
         />
+        <Tree.File
+          name="ama.js"
+          onClick={() => {
+            router.push("/ama");
+            props.func();
+          }}
+        />
       </Tree.Folder>
       <Tree.Folder name="public">
         <Tree.File

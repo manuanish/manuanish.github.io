@@ -19,6 +19,7 @@ import {
   Toggle,
   Badge,
   Button,
+  User,
   useToasts,
 } from "@geist-ui/core";
 import {
@@ -510,6 +511,43 @@ export default function Home({ postData, postSlugs }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
+          className="mt-20 mb-20"
+        >
+          <Card>
+            <Card.Content>
+              <Text h4 style={{ margin: 0, padding: 0 }}>
+                Ask me anything!
+              </Text>
+              <Text
+                type="secondary"
+                font="12px"
+                style={{ margin: 0, padding: 0, paddingBottom: 10 }}
+              >
+                Posted at: 27/6/22
+              </Text>
+              Ask me anything (anonymously) and I will answer your questions!
+            </Card.Content>
+            <div className="p-4 flex items-center">
+              <div className="grow">
+                <User src="https://github.com/manuanish.png" name="Manu Anish">
+                  <User.Link href="https://instagram.com/manusanish">
+                    @manusanish
+                  </User.Link>
+                </User>
+              </div>
+              <div>
+                <Link href="/ama" target="blank">
+                  <Button type="success">Ask a question</Button>
+                </Link>
+              </div>
+            </div>
+          </Card>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: -5 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
         >
           <Text h2 className="mt-20">
             {" "}
@@ -633,7 +671,7 @@ export default function Home({ postData, postSlugs }) {
             </Card>
           </motion.div>
         </div>
-
+        <ChangeLog />
         <motion.div
           initial={{ opacity: 0, y: -5 }}
           whileInView={{ opacity: 1, y: 0 }}

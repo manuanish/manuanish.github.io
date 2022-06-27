@@ -44,6 +44,7 @@ export default function BlogPost({ source, frontMatter }) {
 
   return (
     <div>
+      <PageTitle title={`manuanish | ${frontMatter.title}`} />
       <Header dynamic={true} dir={["blog", router.query.slug]} />
       <br />
       <br />
