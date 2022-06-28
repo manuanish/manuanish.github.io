@@ -19,7 +19,7 @@ export default function ChangeLog() {
   });
 
   return (
-    <div className="mt-20 mb-20">
+    <div className="mt-[300px] mb-20">
       <motion.div
         initial={{ opacity: 0, y: -5 }}
         whileInView={{ opacity: 1, y: 0 }}

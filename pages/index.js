@@ -511,12 +511,27 @@ export default function Home({ postData, postSlugs }) {
           transition={{ duration: 0.5 }}
           className=" mb-20"
         >
-          <Card style={{backgroundImage: 'url("/gradient-1.png")', backgroundSize: 'cover', border: 'none'}}>
+          <Card
+            style={{
+              backgroundImage: 'url("/gradient-1.png")',
+              backgroundSize: "cover",
+              border: "none",
+            }}
+          >
             <Card.Content>
-              <Text h7 style={{ margin: 0, padding: 0, paddingBottom: 1,color: '#7928ca'}} font="13px">
+              <Text
+                h7
+                style={{
+                  margin: 0,
+                  padding: 0,
+                  paddingBottom: 1,
+                  color: "#7928ca",
+                }}
+                font="13px"
+              >
                 NEW
               </Text>
-              <Text h4 style={{ margin: 0, padding: 0}}>
+              <Text h4 style={{ margin: 0, padding: 0 }}>
                 Ask me anything!
               </Text>
               <Text
@@ -570,202 +585,126 @@ export default function Home({ postData, postSlugs }) {
             carefully planned to achieve a particular aim.
           </Text>
         </motion.div>
-
-        <div className="flex space-evenly mt-10 gap-5 flex-wrap">
-          <motion.div
-            initial={{ opacity: 0, y: -5 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="min-w-[290px] max-w-[290px]"
-          >
-            <Card width="100%">
-              <Text h4 my={0} className="flex">
-                <AiFillPushpin
-                  size={26}
-                  style={{ color: palette.successLight }}
-                />
-                &nbsp;LXXIII
-              </Text>
-              <Text>
-                A puzzle similar to Cicada 3301 but <i>much</i> easier.
-              </Text>
-              <Card.Footer>
-                <Link
-                  block
-                  icon
-                  target="_blank"
-                  href="https://lxxiii-old.vercel.app"
-                >
-                  Check it out!
-                </Link>
-              </Card.Footer>
-            </Card>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: -5 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="min-w-[290px] max-w-[290px]"
-          >
-            <Card width="100%">
-              <Text h4 my={0}>
-                Bon5R
-              </Text>
-              <Text>
-                🔥 Bon5R — Create static, blog-aware websites with pure MDX.
-              </Text>
-              <Card.Footer>
-                <Link block icon target="_blank" href="https://bon5r.com">
-                  Check it out!
-                </Link>
-              </Card.Footer>
-            </Card>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: -5 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="min-w-[290px] max-w-[290px]"
-          >
-            <Card width="100%">
-              <Text h4 my={0}>
-                CMU-PGP
-              </Text>
-              <Text>literally just a command line wrapper for gnupg</Text>
-              <Card.Footer>
-                <Link
-                  block
-                  icon
-                  target="_blank"
-                  href="https://cmupgp.vercel.app"
-                >
-                  Check it out!
-                </Link>
-              </Card.Footer>
-            </Card>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: -5 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="min-w-[290px] max-w-[290px]"
-          >
-            <Card width="100%">
-              <Text h4 my={0}>
-                socket-chat
-              </Text>
-              <Text>A chat room designed for low internet areas.</Text>
-              <Card.Footer>
-                <Link
-                  block
-                  icon
-                  target="_blank"
-                  href="https://github.com/manuanish/socket-chat"
-                >
-                  Check it out!
-                </Link>
-              </Card.Footer>
-            </Card>
-          </motion.div>
-        </div>
-        <ChangeLog />
-        <motion.div
-          initial={{ opacity: 0, y: -5 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <Text h2 className="mt-20">
-            <Twemoji emoji="📖" /> Blog
-          </Text>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: -5 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <Text
-            h4
-            style={{ color: palette.accents_5 }}
-            className="max-w-[600px]"
-          >
-            /bläɡ/ a regularly updated website or web page, typically one run by
-            an individual or small group, that is written in an informal or
-            conversational style.
-          </Text>
-        </motion.div>
-        <div className="relative">
-          {postSlugs.map((slug) => (
+        <div className="flex-col">
+          <div className="flex space-evenly justify-center mt-10 gap-5 flex-wrap">
             <motion.div
               initial={{ opacity: 0, y: -5 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="mt-5"
-              key={slug}
+              className="min-w-[290px] max-w-[290px]"
             >
-              <BlogPost
-                key={slug}
-                tag1={postData[postSlugs.indexOf(slug)].tag1}
-                tag2={postData[postSlugs.indexOf(slug)].tag2}
-                tag3={postData[postSlugs.indexOf(slug)].tag3}
-                tag4={postData[postSlugs.indexOf(slug)].tag4}
-                tag5={postData[postSlugs.indexOf(slug)].tag5}
-                tag6={postData[postSlugs.indexOf(slug)].tag6}
-                tag7={postData[postSlugs.indexOf(slug)].tag7}
-                title={postData[postSlugs.indexOf(slug)].title}
-                date={postData[postSlugs.indexOf(slug)].date}
-                description={postData[postSlugs.indexOf(slug)].description}
-                href={slug}
-              />
-            </motion.div>
-          ))}
-          {theme == "light" ? (
-            <motion.div
-              className="flex justify-center w-full h-full"
-              initial={{ opacity: 0, y: -5 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div
-                className={`w-full p-20 absolute bottom-0 bg-gradient-to-b from-transparent to-white`}
+              <Card
+                width="100%"
+                style={{ backgroundColor: "#18181b", border: "none" }}
               >
-                <div className="flex justify-center">
-                  <Link href="/blog/" target="_blank">
-                    <Button type="success" ghost>
-                      View all
-                    </Button>
+                <Text
+                  h4
+                  my={0}
+                  className="flex"
+                  style={{
+                    fontWeight: 800,
+                    color: "#3f3f46",
+                    letterSpacing: "0.025em",
+                  }}
+                >
+                  LXXIII
+                </Text>
+                <Text style={{ color: "#737373" }}>
+                  A puzzle similar to Cicada 3301 but <i>much</i> easier.
+                </Text>
+                <Card.Footer style={{ borderTop: "1px solid #27272a" }}>
+                  <Link
+                    block
+                    icon
+                    target="_blank"
+                    href="https://lxxiii-old.vercel.app"
+                  >
+                    Check it out!
                   </Link>
-                </div>
-              </div>
+                </Card.Footer>
+              </Card>
             </motion.div>
-          ) : (
             <motion.div
-              className="flex justify-center w-full h-full"
               initial={{ opacity: 0, y: -5 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
+              className="min-w-[290px] max-w-[290px]"
             >
-              <div
-                className={`w-full p-20 absolute bottom-0 bg-gradient-to-b from-transparent to-black`}
+              <Card
+                width="100%"
+                style={{ backgroundColor: "#0f172a", border: "none" }}
               >
-                <div className="flex justify-center">
-                  <Link href="/blog/" target="_blank">
-                    <Button type="success" ghost>
-                      View all
-                    </Button>
+                <Text
+                  h4
+                  my={0}
+                  style={{
+                    fontWeight: 900,
+                    webkitBackgroundClip: "text",
+                    webkitTextFillColor: "transparent",
+                    background:
+                      "linear-gradient(to bottom right, #facc15, #f97316)",
+                  }}
+                >
+                  Bon5R
+                </Text>
+                <Text style={{ color: "#FFFFFF" }}>
+                  🔥 Bon5R — Create static, blog-aware websites with pure MDX.
+                </Text>
+                <Card.Footer style={{ borderTop: "1px solid #1e293b" }}>
+                  <Link block icon target="_blank" href="https://bon5r.com">
+                    Check it out!
                   </Link>
-                </div>
-              </div>
+                </Card.Footer>
+              </Card>
             </motion.div>
-          )}
+            <motion.div
+              initial={{ opacity: 0, y: -5 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="min-w-[290px] max-w-[290px]"
+            >
+              <Card
+                width="100%"
+                style={{
+                  backgroundColor: theme == "dark" ? "#0d1117" : "#ffffff",
+                  border: theme == "dark" ? "none" : "",
+                }}
+              >
+                <Text
+                  h4
+                  my={0}
+                  style={{ color: theme == "dark" ? "#c9d1d9" : "#24292f" }}
+                >
+                  socket-chat
+                </Text>
+                <Text
+                  style={{ color: theme == "dark" ? "#8b949e" : "#57606a" }}
+                >
+                  A chat room designed for low internet areas.
+                </Text>
+                <Card.Footer
+                  style={{
+                    borderTop:
+                      theme == "dark"
+                        ? "1px solid rgb(240 246 252 / 10%)"
+                        : "1px solid hsl(210deg 18% 87%)",
+                  }}
+                >
+                  <Link
+                    block
+                    icon
+                    target="_blank"
+                    href="https://github.com/manuanish/socket-chat"
+                  >
+                    Check it out!
+                  </Link>
+                </Card.Footer>
+              </Card>
+            </motion.div>
+          </div>
         </div>
         <motion.div
           initial={{ opacity: 0, y: -5 }}
