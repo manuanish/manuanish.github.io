@@ -478,34 +478,32 @@ export default function Home({ postData, postSlugs }) {
             </motion.div>
           </div>
         </div>
-        <GeistProvider>
-          <div className="flex justify-center">
-            <motion.div
-              className="mt-20 w-[600px]"
-              initial={{ opacity: 0, y: -5 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.5,
-                delay: 6.5,
-              }}
-            >
-              <div className="border-0 border-l-4 pl-6">
-                <Text h4 i>
-                  &quot;Der Mensch kann tun was er will; er kann aber nicht
-                  wollen was er will.&quot;{" "}
-                </Text>
-                <Text i type="secondary">
-                  Man can do what he wills but he cannot will what he wills.
-                </Text>
-                <br />
-                <br />
-                <Text i b>
-                  ― Arthur Schopenhauer, Essays and Aphorisms
-                </Text>
-              </div>
-            </motion.div>
-          </div>
-        </GeistProvider>
+        <div className="flex justify-center">
+          <motion.div
+            className="mt-20 w-[600px] mb-20"
+            initial={{ opacity: 0, y: -5 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.5,
+              delay: 6.5,
+            }}
+          >
+            <div className="border-0 border-l-4 pl-6">
+              <Text h4 i>
+                &quot;Der Mensch kann tun was er will; er kann aber nicht wollen
+                was er will.&quot;{" "}
+              </Text>
+              <Text i type="secondary">
+                Man can do what he wills but he cannot will what he wills.
+              </Text>
+              <br />
+              <br />
+              <Text i b>
+                ― Arthur Schopenhauer, Essays and Aphorisms
+              </Text>
+            </div>
+          </motion.div>
+        </div>
         <motion.div
           initial={{ opacity: 0, y: -5 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -570,13 +568,13 @@ export default function Home({ postData, postSlugs }) {
           </Text>
         </motion.div>
 
-        <div className="flex space-evenly justify-center mt-10 gap-5 flex-wrap">
+        <div className="flex space-evenly mt-10 gap-5 flex-wrap">
           <motion.div
             initial={{ opacity: 0, y: -5 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="min-w-[300px] max-w-[300px]"
+            className="min-w-[290px] max-w-[290px]"
           >
             <Card width="100%">
               <Text h4 my={0} className="flex">
@@ -606,7 +604,7 @@ export default function Home({ postData, postSlugs }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="min-w-[300px] max-w-[300px]"
+            className="min-w-[290px] max-w-[290px]"
           >
             <Card width="100%">
               <Text h4 my={0}>
@@ -627,7 +625,7 @@ export default function Home({ postData, postSlugs }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="min-w-[300px] max-w-[300px]"
+            className="min-w-[290px] max-w-[290px]"
           >
             <Card width="100%">
               <Text h4 my={0}>
@@ -651,7 +649,7 @@ export default function Home({ postData, postSlugs }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="min-w-[300px] max-w-[300px]"
+            className="min-w-[290px] max-w-[290px]"
           >
             <Card width="100%">
               <Text h4 my={0}>
