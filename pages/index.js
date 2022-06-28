@@ -511,7 +511,7 @@ export default function Home({ postData, postSlugs }) {
           transition={{ duration: 0.5 }}
           className=" mb-20"
         >
-          <Card style={{backgroundImage: 'url("/gradient-1.png")', backgroundSize: 'cover'}}>
+          <Card style={{backgroundImage: 'url("/gradient-1.png")', backgroundSize: 'cover', border: 'none'}}>
             <Card.Content>
               <Text h7 style={{ margin: 0, padding: 0, paddingBottom: 1,color: '#7928ca'}} font="13px">
                 NEW
