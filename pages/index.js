@@ -509,11 +509,14 @@ export default function Home({ postData, postSlugs }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mt-20 mb-20"
+          className=" mb-20"
         >
-          <Card>
+          <Card style={{backgroundImage: 'url("/gradient-1.png")', backgroundSize: 'cover'}}>
             <Card.Content>
-              <Text h4 style={{ margin: 0, padding: 0 }}>
+              <Text h7 style={{ margin: 0, padding: 0, paddingBottom: 1,color: '#7928ca'}} font="13px">
+                NEW
+              </Text>
+              <Text h4 style={{ margin: 0, padding: 0}}>
                 Ask me anything!
               </Text>
               <Text
@@ -525,7 +528,7 @@ export default function Home({ postData, postSlugs }) {
               </Text>
               Ask me anything (anonymously) and I will answer your questions!
             </Card.Content>
-            <div className="p-4 flex items-center">
+            <div className="p-4 flex items-center flex-wrap gap-5 justify-center">
               <div className="grow">
                 <User src="https://github.com/manuanish.png" name="Manu Anish">
                   <User.Link href="https://instagram.com/manusanish">
