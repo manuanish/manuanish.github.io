@@ -641,8 +641,8 @@ export default function Home({ postData, postSlugs }) {
                   my={0}
                   style={{
                     fontWeight: 900,
-                    webkitBackgroundClip: "text",
-                    webkitTextFillColor: "transparent",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
                     background:
                       "linear-gradient(to bottom right, #facc15, #f97316)",
                   }}
