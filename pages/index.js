@@ -641,10 +641,7 @@ export default function Home({ postData, postSlugs }) {
                   my={0}
                   style={{
                     fontWeight: 900,
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    background:
-                      "linear-gradient(to bottom right, #facc15, #f97316)",
+                    color: "#FFFFFF"
                   }}
                 >
                   Bon5R
