@@ -27,7 +27,7 @@ body {
 }
 
 .math-display {
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 pre[class*="language-"] {

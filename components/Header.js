@@ -282,7 +282,7 @@ export default function Header(props) {
   return (
     <div className="flex">
       <div className="mt-8 grow">
-        <div className="overflow-scroll whitespace-nowrap">
+        <div className="overflow-auto whitespace-nowrap">
           <Breadcrumbs>
             <Breadcrumbs.Item
               href="#"
@@ -339,11 +339,12 @@ export default function Header(props) {
         onClose={() => setState(false)}
         placement="left"
         width="332px"
+        style={{overflow: 'auto'}}
       >
         <Code>manuanish.vercel.app</Code>
         <Drawer.Subtitle>Metadata</Drawer.Subtitle>
 
-        <Drawer.Content>
+        <Drawer.Content style={{overflow: 'auto'}}>
           <br />
           <Description
             title="Files"
@@ -359,7 +360,7 @@ export default function Header(props) {
             content="Information about the current page."
           />
           <br />
-          <div className="flex">
+          <div className="flex" style={{overflow: 'auto'}}>
             <pre className="w-full">
               {props.dynamic == true ? (
                 <Code width="100%">
