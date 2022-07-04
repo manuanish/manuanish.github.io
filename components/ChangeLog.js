@@ -27,18 +27,18 @@ export default function ChangeLog() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-        <Text
-          h7
-          style={{
-            margin: 0,
-            padding: 0,
-            paddingBottom: 1,
-          }}
-          font="13px"
-          type="secondary"
-        >
-          PROGRESS...
-        </Text>
+          <Text
+            h7
+            style={{
+              margin: 0,
+              padding: 0,
+              paddingBottom: 1,
+            }}
+            font="13px"
+            type="secondary"
+          >
+            PROGRESS...
+          </Text>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: -5 }}
@@ -171,7 +171,8 @@ export default function ChangeLog() {
               </div>
               <div className="self-start top-0">
                 <Text type="secondary max-w-[300px]">
-                  Update <Code>/pubkey</Code> and <Code>/readme</Code> to match new GnuPG signature.
+                  Update <Code>/pubkey</Code> and <Code>/readme</Code> to match
+                  new GnuPG signature.
                 </Text>
               </div>
             </div>

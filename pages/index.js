@@ -641,7 +641,7 @@ export default function Home({ postData, postSlugs }) {
                   my={0}
                   style={{
                     fontWeight: 900,
-                    color: "#FFFFFF"
+                    color: "#FFFFFF",
                   }}
                 >
                   Bon5R
@@ -703,25 +703,25 @@ export default function Home({ postData, postSlugs }) {
             </motion.div>
           </div>
         </div>
-        <ChangeLog/>
+        <ChangeLog />
         <motion.div
           initial={{ opacity: 0, y: -5 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-        <Text
-          h7
-          style={{
-            margin: 0,
-            padding: 0,
-            paddingBottom: 1,
-          }}
-          font="13px"
-          type="success"
-        >
-          UPDATE
-        </Text>
+          <Text
+            h7
+            style={{
+              margin: 0,
+              padding: 0,
+              paddingBottom: 1,
+            }}
+            font="13px"
+            type="success"
+          >
+            UPDATE
+          </Text>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: -5 }}
@@ -729,7 +729,7 @@ export default function Home({ postData, postSlugs }) {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <Text h3 >
+          <Text h3>
             <Twemoji emoji="🔐" /> My digital signature
           </Text>
         </motion.div>
@@ -749,57 +749,57 @@ export default function Home({ postData, postSlugs }) {
         </motion.div>
         <br />
         <div className="flex gap-20 justify-center flex-wrap">
-        <motion.div
-          initial={{ opacity: 0, y: -5 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <Text
-            h7
-            style={{
-              margin: 0,
-              padding: 0,
-              paddingBottom: 1,
-            }}
-            font="13px"
-            type="success"
+          <motion.div
+            initial={{ opacity: 0, y: -5 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
           >
-            NEW
-          </Text>
-          <Text h5>Updated digital signature</Text>
-          <Snippet
-            symbol=""
-            text={"98B960CF0B1E705964DEAA3D9C95636D7E9DB9AF"}
-            width="220px"
-          />
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: -5 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <Text
-            h7
-            style={{
-              margin: 0,
-              padding: 0,
-              paddingBottom: 1,
-            }}
-            font="13px"
-            type="warning"
+            <Text
+              h7
+              style={{
+                margin: 0,
+                padding: 0,
+                paddingBottom: 1,
+              }}
+              font="13px"
+              type="success"
+            >
+              NEW
+            </Text>
+            <Text h5>Updated digital signature</Text>
+            <Snippet
+              symbol=""
+              text={"98B960CF0B1E705964DEAA3D9C95636D7E9DB9AF"}
+              width="220px"
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: -5 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
           >
-            OLD
-          </Text>
-          <Text h5>Depreciated digital signature</Text>
-          <Snippet
-            symbol=""
-            text={"1D6AA03AFB0BFB9A38D9D0BC5EE05F6C1C82CE5F"}
-            width="220px"
-            type="warning"
-          />
-        </motion.div>
+            <Text
+              h7
+              style={{
+                margin: 0,
+                padding: 0,
+                paddingBottom: 1,
+              }}
+              font="13px"
+              type="warning"
+            >
+              OLD
+            </Text>
+            <Text h5>Depreciated digital signature</Text>
+            <Snippet
+              symbol=""
+              text={"1D6AA03AFB0BFB9A38D9D0BC5EE05F6C1C82CE5F"}
+              width="220px"
+              type="warning"
+            />
+          </motion.div>
         </div>
         <motion.div
           className="mt-10"
