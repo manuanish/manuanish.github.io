@@ -26,6 +26,25 @@ export default function ChangeLog() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
+        >
+        <Text
+          h7
+          style={{
+            margin: 0,
+            padding: 0,
+            paddingBottom: 1,
+          }}
+          font="13px"
+          type="secondary"
+        >
+          PROGRESS...
+        </Text>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: -5 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
           className=""
         >
           <Text h3>Roadmap</Text>
@@ -152,7 +171,7 @@ export default function ChangeLog() {
               </div>
               <div className="self-start top-0">
                 <Text type="secondary max-w-[300px]">
-                  Organize files in <Code>/public/blog</Code> according to post.
+                  Update <Code>/pubkey</Code> and <Code>/readme</Code> to match new GnuPG signature.
                 </Text>
               </div>
             </div>

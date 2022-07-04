@@ -710,7 +710,26 @@ export default function Home({ postData, postSlugs }) {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <Text h3 className="mt-20">
+        <Text
+          h7
+          style={{
+            margin: 0,
+            padding: 0,
+            paddingBottom: 1,
+          }}
+          font="13px"
+          type="success"
+        >
+          UPDATE
+        </Text>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: -5 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <Text h3 >
             <Twemoji emoji="🔐" /> My digital signature
           </Text>
         </motion.div>
@@ -729,18 +748,59 @@ export default function Home({ postData, postSlugs }) {
           </Text>
         </motion.div>
         <br />
+        <div className="flex gap-20 justify-center flex-wrap">
         <motion.div
           initial={{ opacity: 0, y: -5 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
+          <Text
+            h7
+            style={{
+              margin: 0,
+              padding: 0,
+              paddingBottom: 1,
+            }}
+            font="13px"
+            type="success"
+          >
+            NEW
+          </Text>
+          <Text h5>Updated digital signature</Text>
+          <Snippet
+            symbol=""
+            text={"98B960CF0B1E705964DEAA3D9C95636D7E9DB9AF"}
+            width="220px"
+          />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: -5 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <Text
+            h7
+            style={{
+              margin: 0,
+              padding: 0,
+              paddingBottom: 1,
+            }}
+            font="13px"
+            type="warning"
+          >
+            OLD
+          </Text>
+          <Text h5>Depreciated digital signature</Text>
           <Snippet
             symbol=""
             text={"1D6AA03AFB0BFB9A38D9D0BC5EE05F6C1C82CE5F"}
-            width="auto"
+            width="220px"
+            type="warning"
           />
         </motion.div>
+        </div>
         <motion.div
           className="mt-10"
           initial={{ opacity: 0, y: -5 }}
@@ -795,7 +855,7 @@ export default function Home({ postData, postSlugs }) {
                 <br />
                 <Snippet>
                   gpg --keyserver pgp.mit.edu --recv-keys
-                  0x1D6AA03AFB0BFB9A38D9D0BC5EE05F6C1C82CE5F
+                  0x98B960CF0B1E705964DEAA3D9C95636D7E9DB9AF
                 </Snippet>
                 <br />
                 <br />
