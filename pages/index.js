@@ -434,10 +434,10 @@ export default function Home({ postData, postSlugs }) {
                     &nbsp;&nbsp;
                     <Link href="https://twitch.tv/iHxpMC" block target="_blank">
                       iHxpMC
-                      <div className="hidden">
+                      <div className="visible">
                         <Badge.Anchor>
                           <Badge scale={0.5} type="error">
-                            1
+                            2
                           </Badge>
                           &nbsp;
                         </Badge.Anchor>
@@ -504,6 +504,65 @@ export default function Home({ postData, postSlugs }) {
             </div>
           </motion.div>
         </div>
+        <motion.div
+          initial={{ opacity: 0, y: -5 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className=" mb-5"
+        >
+          <Card
+            style={{
+              backgroundImage: `${
+                theme == "dark"
+                  ? 'url("/mc-19-dark.png")'
+                  : 'url("/mc-19-light.png")'
+              }`,
+              backgroundSize: "cover",
+              border: "none",
+            }}
+          >
+            <Card.Content>
+              <Text
+                h7
+                style={{
+                  margin: 0,
+                  padding: 0,
+                  paddingBottom: 1,
+                }}
+                type="success"
+                font="13px"
+              >
+                NEW
+              </Text>
+              <Text h4 style={{ margin: 0, padding: 0 }}>
+                Minecraft 1.19 World Record!
+              </Text>
+              <Text
+                type="secondary"
+                font="12px"
+                style={{ margin: 0, padding: 0, paddingBottom: 10 }}
+              >
+                Posted at: 8/7/22
+              </Text>
+              An analysis of my 1.19 world record speedrun.
+            </Card.Content>
+            <div className="p-4 flex items-center flex-wrap gap-5 justify-center">
+              <div className="grow">
+                <User src="https://github.com/manuanish.png" name="Manu Anish">
+                  <User.Link href="https://instagram.com/manusanish">
+                    @manusanish
+                  </User.Link>
+                </User>
+              </div>
+              <div>
+                <Link href="/blog/minecraft-119-record" target="blank">
+                  <Button type="success">Read More!</Button>
+                </Link>
+              </div>
+            </div>
+          </Card>
+        </motion.div>
         <motion.div
           initial={{ opacity: 0, y: -5 }}
           whileInView={{ opacity: 1, y: 0 }}

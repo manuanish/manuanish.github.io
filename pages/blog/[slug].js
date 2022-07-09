@@ -9,7 +9,6 @@ import { serialize } from "next-mdx-remote/serialize";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import Link from "next/link";
 
 import Author from "@components/Author";
 import BlogImage from "@components/BlogImage";
@@ -18,11 +17,12 @@ import Header from "@components/Header";
 import PageTitle from "@components/PageTitle";
 import Tags from "@components/Tags";
 import Twemoji from "@components/Twemoji";
+const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
 
 import ELADemo from "@components/blog/ELADemo";
 import VisibilityDemo from "@components/blog/VisibilityDemo";
 
-import { User, Note, Collapse } from "@geist-ui/core";
+import { User, Note, Collapse, Tree, Link, Button, Card } from "@geist-ui/core";
 
 import remarkPrism from "remark-prism";
 import remarkGfm from "remark-gfm";
@@ -37,6 +37,11 @@ const components = {
   Twemoji: Twemoji,
   ELADemo: ELADemo,
   VisibilityDemo: VisibilityDemo,
+  ReactPlayer: ReactPlayer,
+  Tree: Tree,
+  Link: Link,
+  Button: Button,
+  Card: Card,
 };
 
 export default function BlogPost({ source, frontMatter }) {

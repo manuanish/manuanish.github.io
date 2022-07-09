@@ -37,7 +37,7 @@ export default function ChangeLog() {
             font="13px"
             type="secondary"
           >
-            PROGRESS...
+            PROGRESS
           </Text>
         </motion.div>
         <motion.div
