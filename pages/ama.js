@@ -53,7 +53,6 @@ export default function AMA() {
       if (hasFetchedResponses == false) {
         const { data, error } = await supabase.from("ama").select();
         setResponseData(data);
-        console.log(data);
         setHadFetchedResponses(true);
       }
     }
@@ -103,7 +102,36 @@ export default function AMA() {
   }
 
   const handleFormSubmit = async (event) => {
-    console.log("submitted");
+    await fetch(process.env.NEXT_PUBLIC_DISCORD_WEBHOOK_URL, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        content: "<@540788581208424458>",
+        avatar_url:
+          "https://avatars.dicebear.com/api/micah/" + username + ".png",
+        username: username,
+      }),
+    });
+    fetch(process.env.NEXT_PUBLIC_DISCORD_WEBHOOK_URL, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        content:
+          formValue +
+          " ```captchaValue: " +
+          captchaValue +
+          ",\nmessageLength: " +
+          formValue.length +
+          "\n```",
+        avatar_url:
+          "https://avatars.dicebear.com/api/micah/" + username + ".png",
+        username: username,
+      }),
+    });
 
     if (formValue.length <= 0) {
       setFormError("This field cannot be empty!");
@@ -112,20 +140,26 @@ export default function AMA() {
       if (captchaValue == null) {
         setCaptchaError("Please complete the ReCAPTCHA!");
       } else {
-        const now = new Date();
-        const { data, error } = await supabase.from("ama").insert([
-          {
-            content: formValue,
-            username: username,
-            date: date,
-            answerVisible: false,
-            answerDate: "",
-            answerContent: "",
-            timeStamp: now,
-          },
-        ]);
-        setFormValue("");
-        window.location.reload();
+        if (formValue.length >= 150) {
+          setFormError("Your message is too long!");
+          setFormBorderError("error");
+        } else {
+          const now = new Date();
+          const { data, error } = await supabase.from("ama").insert([
+            {
+              content: formValue,
+              username: username,
+              date: date,
+              answerVisible: false,
+              answerDate: "",
+              answerContent: "",
+              timeStamp: now,
+            },
+          ]);
+
+          setFormValue("");
+          window.location.reload();
+        }
       }
     }
   };

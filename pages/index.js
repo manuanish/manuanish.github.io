@@ -509,18 +509,16 @@ export default function Home({ postData, postSlugs }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className=" mb-5"
+          className="grow"
         >
           <Card
             style={{
               backgroundImage: `${
-                theme == "dark"
-                  ? 'url("/mc-19-dark.png")'
-                  : 'url("/mc-19-light.png")'
+                theme == "dark" ? 'url("/discord-nextjs.png")' : ""
               }`,
               backgroundSize: "cover",
-              border: "none",
             }}
+            width="100%"
           >
             <Card.Content>
               <Text
@@ -536,16 +534,16 @@ export default function Home({ postData, postSlugs }) {
                 NEW
               </Text>
               <Text h4 style={{ margin: 0, padding: 0 }}>
-                Minecraft 1.19 World Record!
+                Integrating Discord Webhooks with Next.js
               </Text>
               <Text
                 type="secondary"
                 font="12px"
                 style={{ margin: 0, padding: 0, paddingBottom: 10 }}
               >
-                Posted at: 8/7/22
+                Posted at: 21/7/22
               </Text>
-              An analysis of my 1.19 world record speedrun.
+              A quick demo describing the use of discord-js with React.
             </Card.Content>
             <div className="p-4 flex items-center flex-wrap gap-5 justify-center">
               <div className="grow">
@@ -563,6 +561,7 @@ export default function Home({ postData, postSlugs }) {
             </div>
           </Card>
         </motion.div>
+        <br />
         <motion.div
           initial={{ opacity: 0, y: -5 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -574,7 +573,7 @@ export default function Home({ postData, postSlugs }) {
             style={{
               backgroundImage: 'url("/gradient-1.png")',
               backgroundSize: "cover",
-              border: "none",
+              border: "",
             }}
           >
             <Card.Content>
