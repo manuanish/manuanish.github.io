@@ -21,6 +21,7 @@ const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
 
 import ELADemo from "@components/blog/ELADemo";
 import VisibilityDemo from "@components/blog/VisibilityDemo";
+import WebhookDemo from "@components/blog/WebhookDemo";
 
 import { User, Note, Collapse, Tree, Link, Button, Card } from "@geist-ui/core";
 
@@ -42,6 +43,7 @@ const components = {
   Link: Link,
   Button: Button,
   Card: Card,
+  WebhookDemo: WebhookDemo,
 };
 
 export default function BlogPost({ source, frontMatter }) {

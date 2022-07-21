@@ -434,10 +434,10 @@ export default function Home({ postData, postSlugs }) {
                     &nbsp;&nbsp;
                     <Link href="https://twitch.tv/iHxpMC" block target="_blank">
                       iHxpMC
-                      <div className="visible">
+                      <div className="invisible">
                         <Badge.Anchor>
                           <Badge scale={0.5} type="error">
-                            2
+                            1
                           </Badge>
                           &nbsp;
                         </Badge.Anchor>
@@ -534,7 +534,7 @@ export default function Home({ postData, postSlugs }) {
                 NEW
               </Text>
               <Text h4 style={{ margin: 0, padding: 0 }}>
-                Integrating Discord Webhooks with Next.js
+                Creating a discord bot with 0 lines of code!
               </Text>
               <Text
                 type="secondary"
@@ -543,7 +543,7 @@ export default function Home({ postData, postSlugs }) {
               >
                 Posted at: 21/7/22
               </Text>
-              A quick demo describing the use of discord-js with React.
+              A quick demo of a POST request to a discord webhook.
             </Card.Content>
             <div className="p-4 flex items-center flex-wrap gap-5 justify-center">
               <div className="grow">
@@ -554,7 +554,7 @@ export default function Home({ postData, postSlugs }) {
                 </User>
               </div>
               <div>
-                <Link href="/blog/minecraft-119-record" target="blank">
+                <Link href="/blog/discord-next" target="blank">
                   <Button type="success">Read More!</Button>
                 </Link>
               </div>

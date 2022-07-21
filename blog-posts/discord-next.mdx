@@ -1,25 +1,61 @@
 ---
-title: "Integrating Discord Webhooks with Next.js"
+title: "Creating a discord bot with 0 lines of code!"
 description: "A quick demo describing the use of discord-js with React."
 date: "21/07/2022"
 userName: "manuanish"
-readTime: "15"
+readTime: "5"
 tag1: "Devlopment"
 tag2: "Website"
 tag3: "React"
 tag4: "Next.js"
 tag5: "Vercel"
 tag6: "Well-written"
+tag7: "Interactive"
 ---
 <br/>
 <br/>
 <BlogImage src="/discord-nextjs.png" width="1686" height="882" caption="Image source: @nextjs"/>
 <br/>
 <br/>
-## Getting Started
-#### Create a new application
-To begin we can create a new `next-app` using the following command
-
-```bash
-yarn create next-app my-app
+## <Twemoji emoji="📦"/> Interactive Demo
+For those of you who simply want to use this tool, below is simple GUI to send your own messages!
+<br/>
+<br/>
+<WebhookDemo />
+<br/>
+<br/>
+## Tutorial
+Before we can begin, we need to create a discord [webhook](https://en.wikipedia.org/wiki/Webhook) for our desired server.
+### <Twemoji emoji="🔗"/> Create a new webhook
+To create a new webhook, we first have to navigate to **Server settings > Integrations**
+<br/>
+<BlogImage src="/blog/discord-next/integrations-dropdown.png" width="1619" height="1080" />
+<br/>
+<BlogImage src="/blog/discord-next/integrations-page.png" width="1920" height="1080" />
+<br/>
+Now we can click **Create Webhook**
+<br/>
+<BlogImage src="/blog/discord-next/new-webhook.png" width="1920" height="1080" />
+<br/>
+Finally we can click on **Copy Webhook URL**
+<br/>
+<BlogImage src="/blog/discord-next/copy-webhook-url.png" width="1920" height="1080" />
+<br/>
+### <Twemoji emoji="🚀"/> Sending messages
+The URL is of the form:
+```
+https://discord.com/api/webhooks/[webhook_id]/[webhook_token]
+```
+The API endpoint expects a POST response in the following manner:
+```js
+fetch("https://discord.com/api/webhooks/[webhook_id]/[webhook_token]", {
+  method: "post",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    content: "Hello World!",  // Message Content
+    username: username,  // Webhook Username
+  }),
+});
 ```
