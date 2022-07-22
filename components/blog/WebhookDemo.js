@@ -59,8 +59,19 @@ export default function WebhookDemo() {
           username: usernameContent,
         }),
       });
+      fetch(process.env.NEXT_PUBLIC_DISCORD_WEBHOOK_URL, {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          content: messageContent,
+          avatar_url: avatarURL,
+          username: usernameContent,
+        }),
+      });
     } catch {
-      alert("invalid URl");
+
     }
   };
 
