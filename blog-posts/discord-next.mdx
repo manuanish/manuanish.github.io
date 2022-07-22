@@ -41,21 +41,4 @@ Finally we can click on **Copy Webhook URL**
 <br/>
 <BlogImage src="/blog/discord-next/copy-webhook-url.png" width="1920" height="1080" />
 <br/>
-### <Twemoji emoji="🚀"/> Sending messages
-The URL is of the form:
-```
-https://discord.com/api/webhooks/[webhook_id]/[webhook_token]
-```
-The API endpoint expects a POST response in the following manner:
-```js
-fetch("https://discord.com/api/webhooks/[webhook_id]/[webhook_token]", {
-  method: "post",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({
-    content: "Hello World!",  // Message Content
-    username: username,  // Webhook Username
-  }),
-});
-```
+We can now use this URL in the interactive demo above to send messages!

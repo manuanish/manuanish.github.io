@@ -514,7 +514,7 @@ export default function Home({ postData, postSlugs }) {
           <Card
             style={{
               backgroundImage: `${
-                theme == "dark" ? 'url("/discord-nextjs.png")' : ""
+                theme == "dark" ? '' : ""
               }`,
               backgroundSize: "cover",
             }}
